@@ -1,0 +1,6 @@
+framework module Pods_WireCrew {
+  umbrella header "Pods-WireCrew-umbrella.h"
+
+  export *
+  module * { export * }
+}
