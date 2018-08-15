@@ -9,14 +9,36 @@
 /* Begin PBXBuildFile section */
 		1C6C0C66AAF0383D55772190 /* Pods_SimpsonsCrew.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD9B95066C2D7C0246080D39 /* Pods_SimpsonsCrew.framework */; };
 		A6EA338768505140609D1A0C /* Pods_WireCrew.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C434D4ED76D59F13EA0DCAA /* Pods_WireCrew.framework */; };
-		D1DE5A8A21234EAA004DFA10 /* SimpsonsCrew.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D1DE5A8821234EAA004DFA10 /* SimpsonsCrew.xcdatamodeld */; };
-		D1DE5A8C21234EAA004DFA10 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DE5A8B21234EAA004DFA10 /* MasterViewController.swift */; };
-		D1DE5A8E21234EAA004DFA10 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DE5A8D21234EAA004DFA10 /* DetailViewController.swift */; };
+		D1618AE42124CC6600FB36C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1DE5A9221234EAB004DFA10 /* Assets.xcassets */; };
+		D164AAEB212395A400CB9136 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164AAEA212395A400CB9136 /* BaseViewController.swift */; };
+		D164AAED212395C900CB9136 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164AAEC212395C900CB9136 /* SplitViewController.swift */; };
+		D164AAF02123993200CB9136 /* FilmCast.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D164AAEE2123993200CB9136 /* FilmCast.xcdatamodeld */; };
+		D164AAF42123A58400CB9136 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164AAF32123A58400CB9136 /* API.swift */; };
+		D164AAF62123A65600CB9136 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164AAF52123A65600CB9136 /* API.swift */; };
+		D164AAF82123A6E400CB9136 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164AAF72123A6E400CB9136 /* ServiceManager.swift */; };
+		D164AAFD2123DD6800CB9136 /* Actor+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164AAFC2123DD6800CB9136 /* Actor+CoreDataProperties.swift */; };
+		D164AAFE2123DD6800CB9136 /* Actor+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164AAFC2123DD6800CB9136 /* Actor+CoreDataProperties.swift */; };
+		D164AB002123DDE900CB9136 /* Actor+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164AAFF2123DDE900CB9136 /* Actor+CoreDataClass.swift */; };
+		D164AB012123DDE900CB9136 /* Actor+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164AAFF2123DDE900CB9136 /* Actor+CoreDataClass.swift */; };
+		D164AB022123DE0100CB9136 /* FilmCast.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D164AAEE2123993200CB9136 /* FilmCast.xcdatamodeld */; };
+		D164AB072124711800CB9136 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164AB062124711800CB9136 /* SearchViewController.swift */; };
+		D164AB082124711800CB9136 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164AB062124711800CB9136 /* SearchViewController.swift */; };
+		D164AB0A2124715200CB9136 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164AB092124715200CB9136 /* DetailViewController.swift */; };
+		D164AB0B2124715200CB9136 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164AB092124715200CB9136 /* DetailViewController.swift */; };
+		D164AB0D2124718800CB9136 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D164AB0C2124718800CB9136 /* Search.storyboard */; };
+		D164AB0E2124718800CB9136 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D164AB0C2124718800CB9136 /* Search.storyboard */; };
+		D164AB102124719900CB9136 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D164AB0F2124719900CB9136 /* Detail.storyboard */; };
+		D164AB112124719900CB9136 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D164AB0F2124719900CB9136 /* Detail.storyboard */; };
+		D164AB132124747C00CB9136 /* CoreDataUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164AB122124747C00CB9136 /* CoreDataUtility.swift */; };
+		D164AB142124747C00CB9136 /* CoreDataUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164AB122124747C00CB9136 /* CoreDataUtility.swift */; };
+		D164AB16212482C000CB9136 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164AB15212482C000CB9136 /* FavoritesViewController.swift */; };
+		D164AB17212482C000CB9136 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164AB15212482C000CB9136 /* FavoritesViewController.swift */; };
+		D164AB19212482FC00CB9136 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D164AB18212482FC00CB9136 /* Favorites.storyboard */; };
+		D164AB1A212482FC00CB9136 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D164AB18212482FC00CB9136 /* Favorites.storyboard */; };
 		D1DE5A9121234EAA004DFA10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1DE5A8F21234EAA004DFA10 /* Main.storyboard */; };
 		D1DE5A9321234EAB004DFA10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1DE5A9221234EAB004DFA10 /* Assets.xcassets */; };
 		D1DE5A9621234EAB004DFA10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1DE5A9421234EAB004DFA10 /* LaunchScreen.storyboard */; };
 		D1DE5AD92123515D004DFA10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1DE5A8F21234EAA004DFA10 /* Main.storyboard */; };
-		D1DE5ADA21235171004DFA10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1DE5A9221234EAB004DFA10 /* Assets.xcassets */; };
 		D1DE5ADB21235180004DFA10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1DE5A9421234EAB004DFA10 /* LaunchScreen.storyboard */; };
 		D1DE5ADE212351D4004DFA10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DE5ADD212351D4004DFA10 /* AppDelegate.swift */; };
 		D1DE5ADF212352ED004DFA10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DE5ADD212351D4004DFA10 /* AppDelegate.swift */; };
@@ -27,15 +49,28 @@
 		95866EF7D794242EB0EFBDFE /* Pods-SimpsonsCrew.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpsonsCrew.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpsonsCrew/Pods-SimpsonsCrew.debug.xcconfig"; sourceTree = "<group>"; };
 		A667569B1C66B730434D31C4 /* Pods-WireCrew.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WireCrew.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WireCrew/Pods-WireCrew.debug.xcconfig"; sourceTree = "<group>"; };
 		C87859834B1E56D18EE1A2A1 /* Pods-SimpsonsCrew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpsonsCrew.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpsonsCrew/Pods-SimpsonsCrew.release.xcconfig"; sourceTree = "<group>"; };
-		D1DE5A8421234EAA004DFA10 /* SimpsonsCrew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpsonsCrew.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D1DE5A8921234EAA004DFA10 /* SimpsonsCrew.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimpsonsCrew.xcdatamodel; sourceTree = "<group>"; };
-		D1DE5A8B21234EAA004DFA10 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		D1DE5A8D21234EAA004DFA10 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		D164AAE32123869C00CB9136 /* FilmCastLab-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FilmCastLab-Bridging-Header.h"; sourceTree = "<group>"; };
+		D164AAEA212395A400CB9136 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		D164AAEC212395C900CB9136 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
+		D164AAEF2123993200CB9136 /* SimpsonsCrew.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimpsonsCrew.xcdatamodel; sourceTree = "<group>"; };
+		D164AAF32123A58400CB9136 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		D164AAF52123A65600CB9136 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		D164AAF72123A6E400CB9136 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		D164AAFC2123DD6800CB9136 /* Actor+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Actor+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D164AAFF2123DDE900CB9136 /* Actor+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Actor+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D164AB062124711800CB9136 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		D164AB092124715200CB9136 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		D164AB0C2124718800CB9136 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		D164AB0F2124719900CB9136 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		D164AB122124747C00CB9136 /* CoreDataUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataUtility.swift; sourceTree = "<group>"; };
+		D164AB15212482C000CB9136 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		D164AB18212482FC00CB9136 /* Favorites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
+		D1DE5A8421234EAA004DFA10 /* SimpsonsCast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpsonsCast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1DE5A9021234EAA004DFA10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D1DE5A9221234EAB004DFA10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1DE5A9521234EAB004DFA10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1DE5A9721234EAB004DFA10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D1DE5A9F21234EEE004DFA10 /* WireCrew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WireCrew.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1DE5A9F21234EEE004DFA10 /* WireCast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WireCast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1DE5AAF21234EEE004DFA10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1DE5ADD212351D4004DFA10 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD9B95066C2D7C0246080D39 /* Pods_SimpsonsCrew.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpsonsCrew.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +117,106 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D164AAE42123954200CB9136 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D164AAE52123954200CB9136 /* Derived */,
+				D164AAE62123954200CB9136 /* Stubbed */,
+				D164AAE72123954200CB9136 /* Utility */,
+				D164AAEE2123993200CB9136 /* FilmCast.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D164AAE52123954200CB9136 /* Derived */ = {
+			isa = PBXGroup;
+			children = (
+				D164AAFF2123DDE900CB9136 /* Actor+CoreDataClass.swift */,
+			);
+			path = Derived;
+			sourceTree = "<group>";
+		};
+		D164AAE62123954200CB9136 /* Stubbed */ = {
+			isa = PBXGroup;
+			children = (
+				D164AAFC2123DD6800CB9136 /* Actor+CoreDataProperties.swift */,
+			);
+			path = Stubbed;
+			sourceTree = "<group>";
+		};
+		D164AAE72123954200CB9136 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				D164AB122124747C00CB9136 /* CoreDataUtility.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		D164AAE82123954200CB9136 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				D164AAE92123954200CB9136 /* Base */,
+				D164AB032124707900CB9136 /* Search */,
+				D164AB05212470BF00CB9136 /* Favorites */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		D164AAE92123954200CB9136 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				D164AAEA212395A400CB9136 /* BaseViewController.swift */,
+				D164AAEC212395C900CB9136 /* SplitViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		D164AAF12123A4D000CB9136 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D164AAF32123A58400CB9136 /* API.swift */,
+				D164AAF72123A6E400CB9136 /* ServiceManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		D164AAF22123A4DF00CB9136 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D164AAF52123A65600CB9136 /* API.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		D164AB032124707900CB9136 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				D164AB062124711800CB9136 /* SearchViewController.swift */,
+				D164AB0C2124718800CB9136 /* Search.storyboard */,
+				D164AB04212470B400CB9136 /* Detail */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		D164AB04212470B400CB9136 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				D164AB092124715200CB9136 /* DetailViewController.swift */,
+				D164AB0F2124719900CB9136 /* Detail.storyboard */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		D164AB05212470BF00CB9136 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				D164AB15212482C000CB9136 /* FavoritesViewController.swift */,
+				D164AB18212482FC00CB9136 /* Favorites.storyboard */,
+			);
+			name = Favorites;
+			path = SimpsonsCrew/Tabs/Favorites;
+			sourceTree = SOURCE_ROOT;
+		};
 		D1DE5A4521234D44004DFA10 = {
 			isa = PBXGroup;
 			children = (
@@ -96,8 +231,8 @@
 		D1DE5A4F21234D44004DFA10 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D1DE5A8421234EAA004DFA10 /* SimpsonsCrew.app */,
-				D1DE5A9F21234EEE004DFA10 /* WireCrew.app */,
+				D1DE5A8421234EAA004DFA10 /* SimpsonsCast.app */,
+				D1DE5A9F21234EEE004DFA10 /* WireCast.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,13 +241,13 @@
 			isa = PBXGroup;
 			children = (
 				D1DE5ADC212351D4004DFA10 /* Application */,
-				D1DE5A8B21234EAA004DFA10 /* MasterViewController.swift */,
-				D1DE5A8D21234EAA004DFA10 /* DetailViewController.swift */,
+				D164AAE42123954200CB9136 /* Model */,
+				D164AAE82123954200CB9136 /* Tabs */,
+				D164AAF12123A4D000CB9136 /* Network */,
 				D1DE5A8F21234EAA004DFA10 /* Main.storyboard */,
 				D1DE5A9221234EAB004DFA10 /* Assets.xcassets */,
 				D1DE5A9421234EAB004DFA10 /* LaunchScreen.storyboard */,
 				D1DE5A9721234EAB004DFA10 /* Info.plist */,
-				D1DE5A8821234EAA004DFA10 /* SimpsonsCrew.xcdatamodeld */,
 			);
 			path = SimpsonsCrew;
 			sourceTree = "<group>";
@@ -120,6 +255,7 @@
 		D1DE5AA021234EEE004DFA10 /* WireCrew */ = {
 			isa = PBXGroup;
 			children = (
+				D164AAF22123A4DF00CB9136 /* Network */,
 				D1DE5AAF21234EEE004DFA10 /* Info.plist */,
 			);
 			path = WireCrew;
@@ -129,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				D1DE5ADD212351D4004DFA10 /* AppDelegate.swift */,
+				D164AAE32123869C00CB9136 /* FilmCastLab-Bridging-Header.h */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -136,9 +273,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D1DE5A8321234EAA004DFA10 /* SimpsonsCrew */ = {
+		D1DE5A8321234EAA004DFA10 /* SimpsonsCast */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D1DE5A9821234EAB004DFA10 /* Build configuration list for PBXNativeTarget "SimpsonsCrew" */;
+			buildConfigurationList = D1DE5A9821234EAB004DFA10 /* Build configuration list for PBXNativeTarget "SimpsonsCast" */;
 			buildPhases = (
 				01670E59C5FC661FA96FE950 /* [CP] Check Pods Manifest.lock */,
 				D1DE5A8021234EAA004DFA10 /* Sources */,
@@ -150,14 +287,14 @@
 			);
 			dependencies = (
 			);
-			name = SimpsonsCrew;
+			name = SimpsonsCast;
 			productName = SimpsonsCrew;
-			productReference = D1DE5A8421234EAA004DFA10 /* SimpsonsCrew.app */;
+			productReference = D1DE5A8421234EAA004DFA10 /* SimpsonsCast.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D1DE5A9E21234EEE004DFA10 /* WireCrew */ = {
+		D1DE5A9E21234EEE004DFA10 /* WireCast */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D1DE5AB021234EEE004DFA10 /* Build configuration list for PBXNativeTarget "WireCrew" */;
+			buildConfigurationList = D1DE5AB021234EEE004DFA10 /* Build configuration list for PBXNativeTarget "WireCast" */;
 			buildPhases = (
 				CF1CA29C48EC9FF05CA1D57C /* [CP] Check Pods Manifest.lock */,
 				D1DE5A9B21234EEE004DFA10 /* Sources */,
@@ -169,9 +306,9 @@
 			);
 			dependencies = (
 			);
-			name = WireCrew;
+			name = WireCast;
 			productName = WireCrew;
-			productReference = D1DE5A9F21234EEE004DFA10 /* WireCrew.app */;
+			productReference = D1DE5A9F21234EEE004DFA10 /* WireCast.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -192,7 +329,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D1DE5A4921234D44004DFA10 /* Build configuration list for PBXProject "FilmCrewLab" */;
+			buildConfigurationList = D1DE5A4921234D44004DFA10 /* Build configuration list for PBXProject "FilmCastLab" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -205,8 +342,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D1DE5A8321234EAA004DFA10 /* SimpsonsCrew */,
-				D1DE5A9E21234EEE004DFA10 /* WireCrew */,
+				D1DE5A8321234EAA004DFA10 /* SimpsonsCast */,
+				D1DE5A9E21234EEE004DFA10 /* WireCast */,
 			);
 		};
 /* End PBXProject section */
@@ -218,6 +355,9 @@
 			files = (
 				D1DE5A9621234EAB004DFA10 /* LaunchScreen.storyboard in Resources */,
 				D1DE5A9321234EAB004DFA10 /* Assets.xcassets in Resources */,
+				D164AB19212482FC00CB9136 /* Favorites.storyboard in Resources */,
+				D164AB0D2124718800CB9136 /* Search.storyboard in Resources */,
+				D164AB102124719900CB9136 /* Detail.storyboard in Resources */,
 				D1DE5A9121234EAA004DFA10 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,7 +367,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1DE5ADB21235180004DFA10 /* LaunchScreen.storyboard in Resources */,
-				D1DE5ADA21235171004DFA10 /* Assets.xcassets in Resources */,
+				D164AB1A212482FC00CB9136 /* Favorites.storyboard in Resources */,
+				D164AB0E2124718800CB9136 /* Search.storyboard in Resources */,
+				D164AB112124719900CB9136 /* Detail.storyboard in Resources */,
+				D1618AE42124CC6600FB36C3 /* Assets.xcassets in Resources */,
 				D1DE5AD92123515D004DFA10 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,10 +457,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D164AAF02123993200CB9136 /* FilmCast.xcdatamodeld in Sources */,
+				D164AAFD2123DD6800CB9136 /* Actor+CoreDataProperties.swift in Sources */,
+				D164AB132124747C00CB9136 /* CoreDataUtility.swift in Sources */,
+				D164AAEB212395A400CB9136 /* BaseViewController.swift in Sources */,
+				D164AB072124711800CB9136 /* SearchViewController.swift in Sources */,
 				D1DE5ADE212351D4004DFA10 /* AppDelegate.swift in Sources */,
-				D1DE5A8A21234EAA004DFA10 /* SimpsonsCrew.xcdatamodeld in Sources */,
-				D1DE5A8C21234EAA004DFA10 /* MasterViewController.swift in Sources */,
-				D1DE5A8E21234EAA004DFA10 /* DetailViewController.swift in Sources */,
+				D164AAF82123A6E400CB9136 /* ServiceManager.swift in Sources */,
+				D164AB002123DDE900CB9136 /* Actor+CoreDataClass.swift in Sources */,
+				D164AB0A2124715200CB9136 /* DetailViewController.swift in Sources */,
+				D164AAED212395C900CB9136 /* SplitViewController.swift in Sources */,
+				D164AB16212482C000CB9136 /* FavoritesViewController.swift in Sources */,
+				D164AAF42123A58400CB9136 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,7 +476,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D164AB082124711800CB9136 /* SearchViewController.swift in Sources */,
+				D164AB17212482C000CB9136 /* FavoritesViewController.swift in Sources */,
+				D164AAF62123A65600CB9136 /* API.swift in Sources */,
+				D164AB012123DDE900CB9136 /* Actor+CoreDataClass.swift in Sources */,
+				D164AB022123DE0100CB9136 /* FilmCast.xcdatamodeld in Sources */,
+				D164AAFE2123DD6800CB9136 /* Actor+CoreDataProperties.swift in Sources */,
 				D1DE5ADF212352ED004DFA10 /* AppDelegate.swift in Sources */,
+				D164AB0B2124715200CB9136 /* DetailViewController.swift in Sources */,
+				D164AB142124747C00CB9136 /* CoreDataUtility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +638,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xfinity.simpsonsviewer.SimpsonsCrew;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SimpsonsCrew/Application/FilmCastLab-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -498,6 +658,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xfinity.simpsonsviewer.SimpsonsCrew;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SimpsonsCrew/Application/FilmCastLab-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -517,6 +678,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xfinity.wireviewer.WireCrew;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SimpsonsCrew/Application/FilmCastLab-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -536,6 +698,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xfinity.wireviewer.WireCrew;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SimpsonsCrew/Application/FilmCastLab-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -544,7 +707,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D1DE5A4921234D44004DFA10 /* Build configuration list for PBXProject "FilmCrewLab" */ = {
+		D1DE5A4921234D44004DFA10 /* Build configuration list for PBXProject "FilmCastLab" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D1DE5A6321234D45004DFA10 /* Debug */,
@@ -553,7 +716,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D1DE5A9821234EAB004DFA10 /* Build configuration list for PBXNativeTarget "SimpsonsCrew" */ = {
+		D1DE5A9821234EAB004DFA10 /* Build configuration list for PBXNativeTarget "SimpsonsCast" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D1DE5A9921234EAB004DFA10 /* Debug */,
@@ -562,7 +725,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D1DE5AB021234EEE004DFA10 /* Build configuration list for PBXNativeTarget "WireCrew" */ = {
+		D1DE5AB021234EEE004DFA10 /* Build configuration list for PBXNativeTarget "WireCast" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D1DE5AB121234EEE004DFA10 /* Debug */,
@@ -574,13 +737,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		D1DE5A8821234EAA004DFA10 /* SimpsonsCrew.xcdatamodeld */ = {
+		D164AAEE2123993200CB9136 /* FilmCast.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				D1DE5A8921234EAA004DFA10 /* SimpsonsCrew.xcdatamodel */,
+				D164AAEF2123993200CB9136 /* SimpsonsCrew.xcdatamodel */,
 			);
-			currentVersion = D1DE5A8921234EAA004DFA10 /* SimpsonsCrew.xcdatamodel */;
-			path = SimpsonsCrew.xcdatamodeld;
+			currentVersion = D164AAEF2123993200CB9136 /* SimpsonsCrew.xcdatamodel */;
+			path = FilmCast.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
