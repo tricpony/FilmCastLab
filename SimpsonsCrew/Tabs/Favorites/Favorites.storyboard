@@ -1,48 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hXP-UL-iuW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iF5-ql-2xv">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Favorites View Controller-->
-        <scene sceneID="Xi2-a7-rb6">
+        <!--Favorite Cast-->
+        <scene sceneID="RDs-71-foK">
             <objects>
-                <viewController id="fZ3-D0-ojZ" customClass="FavoritesViewController" customModule="SimpsonsCrew" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="S7d-pg-EJ1">
+                <tableViewController title="Favorite Cast" id="um7-de-w4h" customClass="FavoritesViewController" customModule="SimpsonsCast" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="lyG-TB-Dn9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="tW9-UP-jd2"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="FdI-6A-mP3"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KZl-r6-UkK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActorTitleCell" id="QPb-wD-S5A">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QPb-wD-S5A" id="jNN-Gc-am2">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="HU0-rd-bMw" kind="showDetail" identifier="actorDetailSegue" id="oif-fQ-Xta"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="um7-de-w4h" id="uDi-hA-tds"/>
+                            <outlet property="delegate" destination="um7-de-w4h" id="Jrb-go-h93"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="KCF-Uk-iz3"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lgx-qm-Nno" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1128.8" y="251.42428785607197"/>
+            <point key="canvasLocation" x="1952.8" y="366.56671664167919"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="k92-nl-q2y">
+        <!--Detail-->
+        <scene sceneID="a1B-37-Gtf">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hXP-UL-iuW" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Detail" id="HU0-rd-bMw" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zUQ-m3-423" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2332" y="871"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="kBw-fx-91M">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iF5-ql-2xv" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="star-filled" id="cnh-P5-uID"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="U2w-z1-O22">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0W5-g1-L9h">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="fZ3-D0-ojZ" kind="relationship" relationship="rootViewController" id="8Pu-Vf-OT8"/>
+                        <segue destination="um7-de-w4h" kind="relationship" relationship="rootViewController" id="dfe-bX-XOW"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4mA-4f-9z9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KxZ-gf-fRb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="189.59999999999999" y="251.42428785607197"/>
+            <point key="canvasLocation" x="1013.6" y="366.56671664167919"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="star-filled" width="30" height="30"/>
+    </resources>
 </document>

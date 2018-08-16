@@ -9,29 +9,12 @@
 import Foundation
 
 class CoreDataUtility {
-    
-    class func fetchRequest(_ entity: String,
-                            _ ctx: NSManagedObjectContext,
-                            _ predicate: NSPredicate?,
-                            _ sortDescriptors: Array<Any>?) -> NSFetchRequest<NSFetchRequestResult> {
-        let request = NSFetchRequest<NSFetchRequestResult>.init(entityName:entity)
         
-        if predicate != nil {
-            request.predicate = predicate
-        }
-        
-        if sortDescriptors != nil {
-            request.sortDescriptors = sortDescriptors as? [NSSortDescriptor]
-        }
-        
-        return request
-    }
-    
     class func fetchActorCount(ctx: NSManagedObjectContext) -> UInt {
         return Actor.mr_countOfEntities()
     }
     
-    class func fetchRequestForAllMovies(ctx: NSManagedObjectContext) -> NSFetchRequest<NSFetchRequestResult> {
+    class func fetchRequestForAllActors(ctx: NSManagedObjectContext) -> NSFetchRequest<NSFetchRequestResult> {
         let fetchRequest = Actor.mr_createFetchRequest();
         let sortOrder = NSSortDescriptor.init(key: "name", ascending: true)
         
@@ -48,50 +31,12 @@ class CoreDataUtility {
         return actor
     }
     
-    class func fetchedRequest(query: String, ctx: NSManagedObjectContext) -> NSFetchRequest<NSFetchRequestResult> {
-        var request: NSFetchRequest<NSFetchRequestResult>? = nil
-        let predicateC: NSPredicate = NSPredicate(format: "title contains[c] %@", query)
-        var predicateV: NSPredicate
-        var predicateVV: NSPredicate
-        let sortOrder: NSSortDescriptor = NSSortDescriptor.init(key: "title", ascending: true)
-        let sortOrders = [sortOrder]
-        var strArray: Array<String>
-        var predArray: Array<NSPredicate> = Array()
+    class func fetchedRequestForAllFavorites(ctx: NSManagedObjectContext) -> NSFetchRequest<NSFetchRequestResult> {
+        let fetchRequest = Favorite.mr_createFetchRequest();
+        let sortOrder = NSSortDescriptor.init(key: "actor.name", ascending: true)
         
-        predicateV = NSPredicate(format: "overview contains[c] %@", query)
-        predicateV = NSCompoundPredicate.init(orPredicateWithSubpredicates: [predicateC, predicateV])
-        strArray = query.split(separator: " ").map(String.init)
-        
-        for str in strArray where strArray.count > 1 {
-            predArray.append(NSPredicate(format: "overview contains[c] %@", str))
-        }
-        if strArray.count > 1 {
-            predicateVV = NSCompoundPredicate.init(orPredicateWithSubpredicates:predArray)
-            predicateV = NSCompoundPredicate.init(orPredicateWithSubpredicates: [predicateV, predicateVV])
-        }
-        
-        request = fetchRequest("Movie", ctx, predicateV, sortOrders)
-        return request!
-    }
-    
-    class func fetchRequest(forMovieIDs: Array<Int>, ctx: NSManagedObjectContext) -> NSFetchRequest<NSFetchRequestResult> {
-        var request: NSFetchRequest<NSFetchRequestResult>? = nil;
-        let predicate: NSPredicate = NSPredicate(format: "(%K IN %@)", "movieID", forMovieIDs);
-        let sortOrder: NSSortDescriptor = NSSortDescriptor.init(key: "title", ascending: true)
-        let sortOrders = [sortOrder]
-        
-        request = fetchRequest("Movie", ctx, predicate, sortOrders)
-        return request!
-    }
-    
-    class func fetchedRequestForFavorites(ctx: NSManagedObjectContext) -> NSFetchRequest<NSFetchRequestResult> {
-        var request: NSFetchRequest<NSFetchRequestResult>? = nil
-        let predicateC: NSPredicate = equalPredicate(key: "isFavorite", value: 1)
-        let sortOrder: NSSortDescriptor = NSSortDescriptor.init(key: "title", ascending: true)
-        let sortOrders = [sortOrder]
-        
-        request = fetchRequest("Movie", ctx, predicateC, sortOrders)
-        return request!
+        fetchRequest.sortDescriptors = [sortOrder]
+        return fetchRequest
     }
     
     class func fetchGenreCount(ctx: NSManagedObjectContext)->Int {

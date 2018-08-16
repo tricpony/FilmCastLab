@@ -84,7 +84,9 @@ class DetailViewController: BaseViewController {
                 self.navigationItem.leftBarButtonItem = done
             }
         }
-
+        if self.actor?.isFavorite() == true {
+            self.favoritesNavBarItem.image = UIImage.init(named: "star-filled")
+        }
     }
     
     @objc func dismissCompactModal() {

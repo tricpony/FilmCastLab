@@ -10,13 +10,8 @@ import UIKit
 
 class SearchViewController: BaseViewController, NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
-//    lazy var managedObjectContext: NSManagedObjectContext = {
-//        MagicalRecord.setupCoreDataStack(withStoreNamed:"FilmCast")
-//        return NSManagedObjectContext.mr_default()
-//    }()
-    var serviceCallInFlight: Bool = false
     lazy var fetchedResultsController: NSFetchedResultsController<Actor> = {
-        let fetchRequest = CoreDataUtility.fetchRequestForAllMovies(ctx: self.managedObjectContext)
+        let fetchRequest = CoreDataUtility.fetchRequestForAllActors(ctx: self.managedObjectContext)
         let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                                    managedObjectContext: self.managedObjectContext,
                                                                    sectionNameKeyPath: nil,
@@ -38,6 +33,8 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         
         //this will prevent bogus separator lines from displaying in an empty table
         self.tableView.tableFooterView = UIView()
+        self.navigationItem.title = "Search"
+
         self.performCastService()
     }
 
