@@ -48,6 +48,16 @@ public class Actor: NSManagedObject {
                 }
         }else{
             print("Name not present")
+            
+            //here we are not able to parse the name with a '-' delimiter, so assuming there is none
+            actor = Actor.mr_createEntity(in: inContext)
+            let profile = actorProfileInfo
+            
+            actor?.profile = profile
+            actor?.name = "Name Unknown"
+            if let iconInfo = actorInfo["Icon"] as? Dictionary<String,String>{
+                actor?.iconURL = iconInfo["URL"]
+            }
         }
 
         return actor!
