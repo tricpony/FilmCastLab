@@ -38,14 +38,6 @@ class FavoritesViewController: UITableViewController, NSFetchedResultsController
         //this will prevent bogus separator lines from displaying in an empty table
         self.tableView.tableFooterView = UIView()
     }
-
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//
-//        self.tableView.beginUpdates()
-//        self.tableView.reloadData()
-//        self.tableView.endUpdates()
-//    }
     
     // MARK: - NSFetchedResultsControllerDelegate
     
