@@ -17,6 +17,8 @@
 		D1618AED212525DE00FB36C3 /* Favorite+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1618AEC212525DD00FB36C3 /* Favorite+CoreDataClass.swift */; };
 		D1618AEE2125288D00FB36C3 /* Favorite+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1618AEA212525D600FB36C3 /* Favorite+CoreDataProperties.swift */; };
 		D1618AEF2125289200FB36C3 /* Favorite+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1618AEC212525DD00FB36C3 /* Favorite+CoreDataClass.swift */; };
+		D1618AF22125600700FB36C3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164AAEA212395A400CB9136 /* BaseViewController.swift */; };
+		D1618AF32125600B00FB36C3 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164AAEC212395C900CB9136 /* SplitViewController.swift */; };
 		D164AAEB212395A400CB9136 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164AAEA212395A400CB9136 /* BaseViewController.swift */; };
 		D164AAED212395C900CB9136 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164AAEC212395C900CB9136 /* SplitViewController.swift */; };
 		D164AAF02123993200CB9136 /* FilmCast.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D164AAEE2123993200CB9136 /* FilmCast.xcdatamodeld */; };
@@ -505,6 +507,8 @@
 				D1618AEF2125289200FB36C3 /* Favorite+CoreDataClass.swift in Sources */,
 				D164AAF62123A65600CB9136 /* API.swift in Sources */,
 				D164AB012123DDE900CB9136 /* Actor+CoreDataClass.swift in Sources */,
+				D1618AF32125600B00FB36C3 /* SplitViewController.swift in Sources */,
+				D1618AF22125600700FB36C3 /* BaseViewController.swift in Sources */,
 				D164AB022123DE0100CB9136 /* FilmCast.xcdatamodeld in Sources */,
 				D1618AEE2125288D00FB36C3 /* Favorite+CoreDataProperties.swift in Sources */,
 				D164AAFE2123DD6800CB9136 /* Actor+CoreDataProperties.swift in Sources */,
