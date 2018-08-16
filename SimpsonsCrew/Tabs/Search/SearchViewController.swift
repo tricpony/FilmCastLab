@@ -10,10 +10,10 @@ import UIKit
 
 class SearchViewController: BaseViewController, NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
-    lazy var managedObjectContext: NSManagedObjectContext = {
-        MagicalRecord.setupCoreDataStack(withStoreNamed:"FilmCast")
-        return NSManagedObjectContext.mr_default()
-    }()
+//    lazy var managedObjectContext: NSManagedObjectContext = {
+//        MagicalRecord.setupCoreDataStack(withStoreNamed:"FilmCast")
+//        return NSManagedObjectContext.mr_default()
+//    }()
     var serviceCallInFlight: Bool = false
     lazy var fetchedResultsController: NSFetchedResultsController<Actor> = {
         let fetchRequest = CoreDataUtility.fetchRequestForAllMovies(ctx: self.managedObjectContext)

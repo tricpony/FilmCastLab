@@ -45,24 +45,6 @@ public class Actor: NSManagedObject {
                     if let iconInfo = actorInfo["Icon"] as? Dictionary<String,String>{
                         actor?.iconURL = iconInfo["URL"]
                     }
-                    
-                    //use placeholder url if API has no picture for this actor
-                    if (actor?.iconURL?.isEmpty)! {
-                        
-                        /////////////////////////////////////////////////////
-                        //
-                        // this is a hack substitution for a bundled file url that failed because
-                        //
-                        // this:
-                        //
-                        // actor?.iconURL = bundle.url(forResource: "Members_tab", withExtension: "png")?.absoluteString
-                        //
-                        // does not work -- spent hours trying and finally had to abandon it -- argh!!
-                        //
-                        /////////////////////////////////////////////////////
-                        actor?.hasImage = false
-                        
-                    }
                 }
         }else{
             print("Name not present")
@@ -76,4 +58,8 @@ public class Actor: NSManagedObject {
         setValue(NSDate(), forKey:"createDate")
     }
 
+    func isFavorite() -> Bool {
+        return self.favorite != nil
+    }
+    
 }

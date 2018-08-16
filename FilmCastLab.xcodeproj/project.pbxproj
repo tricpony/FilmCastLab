@@ -11,6 +11,12 @@
 		A6EA338768505140609D1A0C /* Pods_WireCrew.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C434D4ED76D59F13EA0DCAA /* Pods_WireCrew.framework */; };
 		D1618AE42124CC6600FB36C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1DE5A9221234EAB004DFA10 /* Assets.xcassets */; };
 		D1618AE52124FC8E00FB36C3 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164AAF72123A6E400CB9136 /* ServiceManager.swift */; };
+		D1618AE821251A7200FB36C3 /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1618AE721251A7200FB36C3 /* DeviceType.swift */; };
+		D1618AE921251A7E00FB36C3 /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1618AE721251A7200FB36C3 /* DeviceType.swift */; };
+		D1618AEB212525D600FB36C3 /* Favorite+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1618AEA212525D600FB36C3 /* Favorite+CoreDataProperties.swift */; };
+		D1618AED212525DE00FB36C3 /* Favorite+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1618AEC212525DD00FB36C3 /* Favorite+CoreDataClass.swift */; };
+		D1618AEE2125288D00FB36C3 /* Favorite+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1618AEA212525D600FB36C3 /* Favorite+CoreDataProperties.swift */; };
+		D1618AEF2125289200FB36C3 /* Favorite+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1618AEC212525DD00FB36C3 /* Favorite+CoreDataClass.swift */; };
 		D164AAEB212395A400CB9136 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164AAEA212395A400CB9136 /* BaseViewController.swift */; };
 		D164AAED212395C900CB9136 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164AAEC212395C900CB9136 /* SplitViewController.swift */; };
 		D164AAF02123993200CB9136 /* FilmCast.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D164AAEE2123993200CB9136 /* FilmCast.xcdatamodeld */; };
@@ -50,6 +56,9 @@
 		95866EF7D794242EB0EFBDFE /* Pods-SimpsonsCrew.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpsonsCrew.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpsonsCrew/Pods-SimpsonsCrew.debug.xcconfig"; sourceTree = "<group>"; };
 		A667569B1C66B730434D31C4 /* Pods-WireCrew.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WireCrew.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WireCrew/Pods-WireCrew.debug.xcconfig"; sourceTree = "<group>"; };
 		C87859834B1E56D18EE1A2A1 /* Pods-SimpsonsCrew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpsonsCrew.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpsonsCrew/Pods-SimpsonsCrew.release.xcconfig"; sourceTree = "<group>"; };
+		D1618AE721251A7200FB36C3 /* DeviceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
+		D1618AEA212525D600FB36C3 /* Favorite+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Favorite+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D1618AEC212525DD00FB36C3 /* Favorite+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Favorite+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D164AAE32123869C00CB9136 /* FilmCastLab-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FilmCastLab-Bridging-Header.h"; sourceTree = "<group>"; };
 		D164AAEA212395A400CB9136 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		D164AAEC212395C900CB9136 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +127,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D1618AE621251A5200FB36C3 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				D1618AE721251A7200FB36C3 /* DeviceType.swift */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
 		D164AAE42123954200CB9136 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +149,7 @@
 		D164AAE52123954200CB9136 /* Derived */ = {
 			isa = PBXGroup;
 			children = (
+				D1618AEC212525DD00FB36C3 /* Favorite+CoreDataClass.swift */,
 				D164AAFF2123DDE900CB9136 /* Actor+CoreDataClass.swift */,
 			);
 			path = Derived;
@@ -140,6 +158,7 @@
 		D164AAE62123954200CB9136 /* Stubbed */ = {
 			isa = PBXGroup;
 			children = (
+				D1618AEA212525D600FB36C3 /* Favorite+CoreDataProperties.swift */,
 				D164AAFC2123DD6800CB9136 /* Actor+CoreDataProperties.swift */,
 			);
 			path = Stubbed;
@@ -245,6 +264,7 @@
 				D164AAE42123954200CB9136 /* Model */,
 				D164AAE82123954200CB9136 /* Tabs */,
 				D164AAF12123A4D000CB9136 /* Network */,
+				D1618AE621251A5200FB36C3 /* Global */,
 				D1DE5A8F21234EAA004DFA10 /* Main.storyboard */,
 				D1DE5A9221234EAB004DFA10 /* Assets.xcassets */,
 				D1DE5A9421234EAB004DFA10 /* LaunchScreen.storyboard */,
@@ -459,10 +479,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D164AAF02123993200CB9136 /* FilmCast.xcdatamodeld in Sources */,
+				D1618AEB212525D600FB36C3 /* Favorite+CoreDataProperties.swift in Sources */,
 				D164AAFD2123DD6800CB9136 /* Actor+CoreDataProperties.swift in Sources */,
+				D1618AE821251A7200FB36C3 /* DeviceType.swift in Sources */,
 				D164AB132124747C00CB9136 /* CoreDataUtility.swift in Sources */,
 				D164AAEB212395A400CB9136 /* BaseViewController.swift in Sources */,
 				D164AB072124711800CB9136 /* SearchViewController.swift in Sources */,
+				D1618AED212525DE00FB36C3 /* Favorite+CoreDataClass.swift in Sources */,
 				D1DE5ADE212351D4004DFA10 /* AppDelegate.swift in Sources */,
 				D164AAF82123A6E400CB9136 /* ServiceManager.swift in Sources */,
 				D164AB002123DDE900CB9136 /* Actor+CoreDataClass.swift in Sources */,
@@ -479,12 +502,15 @@
 			files = (
 				D164AB082124711800CB9136 /* SearchViewController.swift in Sources */,
 				D164AB17212482C000CB9136 /* FavoritesViewController.swift in Sources */,
+				D1618AEF2125289200FB36C3 /* Favorite+CoreDataClass.swift in Sources */,
 				D164AAF62123A65600CB9136 /* API.swift in Sources */,
 				D164AB012123DDE900CB9136 /* Actor+CoreDataClass.swift in Sources */,
 				D164AB022123DE0100CB9136 /* FilmCast.xcdatamodeld in Sources */,
+				D1618AEE2125288D00FB36C3 /* Favorite+CoreDataProperties.swift in Sources */,
 				D164AAFE2123DD6800CB9136 /* Actor+CoreDataProperties.swift in Sources */,
 				D1DE5ADF212352ED004DFA10 /* AppDelegate.swift in Sources */,
 				D164AB0B2124715200CB9136 /* DetailViewController.swift in Sources */,
+				D1618AE921251A7E00FB36C3 /* DeviceType.swift in Sources */,
 				D164AB142124747C00CB9136 /* CoreDataUtility.swift in Sources */,
 				D1618AE52124FC8E00FB36C3 /* ServiceManager.swift in Sources */,
 			);

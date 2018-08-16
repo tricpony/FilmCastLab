@@ -9,6 +9,10 @@
 import UIKit
 
 class BaseViewController: UIViewController {
+    lazy var managedObjectContext: NSManagedObjectContext = {
+        MagicalRecord.setupCoreDataStack(withStoreNamed:"FilmCast")
+        return NSManagedObjectContext.mr_default()
+    }()
 
     class func sizeClass() -> (vertical: UIUserInterfaceSizeClass, horizontal: UIUserInterfaceSizeClass) {
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate

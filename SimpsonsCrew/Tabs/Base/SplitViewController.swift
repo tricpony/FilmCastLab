@@ -30,10 +30,10 @@ class SplitViewController: UISplitViewController, UISplitViewControllerDelegate 
     
     func splitViewController(_ splitViewController: UISplitViewController, showDetail vc: UIViewController, sender: Any?) -> Bool {
         
-        if UIDevice().userInterfaceIdiom == .phone {
+        guard Display.isIphone() == false else {
             return false
         }
-        
+
         if (splitViewController.traitCollection.horizontalSizeClass == .compact) {
             
             if self.isOnFavorites == false {
@@ -75,10 +75,10 @@ class SplitViewController: UISplitViewController, UISplitViewControllerDelegate 
         guard manuallyHandleSecondaryViewController == true else {
             return nil
         }
-        if UIDevice().userInterfaceIdiom == .phone {
+        guard Display.isIphone() == false else {
             return nil
         }
-        
+
         if splitViewController.traitCollection.horizontalSizeClass == .regular {
             
             if let tabBarController = splitViewController.viewControllers.first as? UITabBarController {
