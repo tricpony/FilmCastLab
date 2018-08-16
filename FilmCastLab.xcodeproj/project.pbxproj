@@ -10,6 +10,7 @@
 		1C6C0C66AAF0383D55772190 /* Pods_SimpsonsCrew.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD9B95066C2D7C0246080D39 /* Pods_SimpsonsCrew.framework */; };
 		A6EA338768505140609D1A0C /* Pods_WireCrew.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C434D4ED76D59F13EA0DCAA /* Pods_WireCrew.framework */; };
 		D1618AE42124CC6600FB36C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1DE5A9221234EAB004DFA10 /* Assets.xcassets */; };
+		D1618AE52124FC8E00FB36C3 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164AAF72123A6E400CB9136 /* ServiceManager.swift */; };
 		D164AAEB212395A400CB9136 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164AAEA212395A400CB9136 /* BaseViewController.swift */; };
 		D164AAED212395C900CB9136 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164AAEC212395C900CB9136 /* SplitViewController.swift */; };
 		D164AAF02123993200CB9136 /* FilmCast.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D164AAEE2123993200CB9136 /* FilmCast.xcdatamodeld */; };
@@ -485,6 +486,7 @@
 				D1DE5ADF212352ED004DFA10 /* AppDelegate.swift in Sources */,
 				D164AB0B2124715200CB9136 /* DetailViewController.swift in Sources */,
 				D164AB142124747C00CB9136 /* CoreDataUtility.swift in Sources */,
+				D1618AE52124FC8E00FB36C3 /* ServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

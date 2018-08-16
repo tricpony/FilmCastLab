@@ -35,7 +35,13 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //this will prevent bogus separator lines from displaying in an empty table
+        self.tableView.tableFooterView = UIView()
+        self.performCastService()
+    }
 
+    func performCastService() {
         if CoreDataUtility.fetchActorCount(ctx: self.managedObjectContext) == 0 {
             let serviceRequest = ServiceManager()
             
@@ -44,7 +50,7 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
                     let nserror = error! as NSError
                     fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
                 }
-
+                
                 guard let content = payload?["RelatedTopics"] as? [Dictionary<String,Any>] else{print("error"); return}
                 
                 for item in content {
@@ -54,7 +60,7 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
             }
         }
     }
-
+    
     // MARK: - NSFetchedResultsControllerDelegate
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -81,7 +87,7 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
     // MARK: - Table View
 
     func cellIdentifier(at indexPath: IndexPath) -> String {
-        return "ActorCell"
+        return "ActorTitleCell"
     }
     
     func nextCellForTableView(_ tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
@@ -118,6 +124,22 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         cell.textLabel!.text = actor.name
         cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         return cell
+    }
+
+    // MARK: - Storyboard
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "actorDetailSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let actor: Actor = fetchedResultsController.object(at: indexPath)
+                let vc = (segue.destination as! UINavigationController).topViewController as! DetailViewController
+                vc.actor = actor
+                vc.navigationItem.title = "Simpsons Cast Member"
+                vc.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+                vc.navigationItem.leftItemsSupplementBackButton = true
+            }
+        }
     }
 
 }

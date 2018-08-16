@@ -10,6 +10,13 @@ import Foundation
 
 class ServiceManager {
 
+    class func startImageService(at url: URL, completionClosure:@escaping (Error?, Data?)->()) {
+        let task = URLSession.shared.dataTask(with: url) { (payload: Data?, response: URLResponse?, error: Error?) in
+            completionClosure(error,payload)
+        }
+        task.resume()
+    }
+
     func serviceRequest() -> URLRequest {
         let url = URL.init(string: API.serviceAddress)
         let request = URLRequest.init(url: url!, timeoutInterval: 8)

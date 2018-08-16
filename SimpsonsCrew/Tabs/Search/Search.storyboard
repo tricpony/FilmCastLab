@@ -13,14 +13,28 @@
         <!--Search View Controller-->
         <scene sceneID="JZJ-ZQ-sSO">
             <objects>
-                <viewController storyboardIdentifier="SearchPanelScene" id="cGt-8q-rKw" customClass="SearchViewController" customModule="SimpsonsCrew" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchPanelScene" id="cGt-8q-rKw" customClass="SearchViewController" customModule="SimpsonsCast" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mlV-Kp-Qsz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NpM-ui-Biz">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NpM-ui-Biz">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ActorTitleCell" id="RYk-LR-u2a">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RYk-LR-u2a" id="gnd-z8-P1T">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="ARK-e6-wWi" kind="showDetail" identifier="actorDetailSegue" id="7Id-7A-5Sq"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="cGt-8q-rKw" id="fG9-ck-E8M"/>
                                     <outlet property="delegate" destination="cGt-8q-rKw" id="NI8-ss-jap"/>
@@ -39,7 +53,6 @@
                     <navigationItem key="navigationItem" id="J7W-1V-PNv"/>
                     <connections>
                         <outlet property="tableView" destination="NpM-ui-Biz" id="xY3-OR-Qfc"/>
-                        <segue destination="ARK-e6-wWi" kind="showDetail" identifier="actorDetailSegue" id="X9A-Aj-Na3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IVt-oV-2Fh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -54,11 +67,13 @@
             </objects>
             <point key="canvasLocation" x="349" y="596"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Search-->
         <scene sceneID="iRU-dW-hJc">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Ju-fE-VZ3" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Ju-fE-VZ3" userLabel="Search" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" image="icon_search" id="zSL-hQ-E5j"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xhW-Nk-PaV">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -73,4 +88,7 @@
             <point key="canvasLocation" x="-590" y="120"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_search" width="30" height="30"/>
+    </resources>
 </document>
