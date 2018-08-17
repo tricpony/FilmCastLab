@@ -1,14 +1,14 @@
 //
-//  SearchViewController.swift
+//  CastPosterViewController.swift
 //  FilmCastLab
 //
-//  Created by aarthur on 8/15/18.
+//  Created by aarthur on 8/17/18.
 //  Copyright © 2018 Gigabit LLC. All rights reserved.
 //
 
 import UIKit
 
-class SearchViewController: BaseViewController, NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource {
+class CastPosterViewController: BaseViewController, NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     lazy var fetchedResultsController: NSFetchedResultsController<Actor> = {
         let fetchRequest = CoreDataUtility.fetchRequestForAllActors(ctx: self.managedObjectContext)
@@ -30,41 +30,10 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //this will prevent bogus separator lines from displaying in an empty table
-        self.tableView.tableFooterView = UIView()
-        self.navigationItem.title = "Search"
-
-        self.performCastService()
-    }
-
-    func performCastService() {
-        if CoreDataUtility.fetchActorCount(ctx: self.managedObjectContext) == 0 {
-            let serviceRequest = ServiceManager()
-            
-            serviceRequest.startService { (error: Error?, payload: Dictionary<String,Any>?) in
-                if error != nil {
-                    let nserror = error! as NSError
-                    fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-                }
-                
-                guard let content = payload?["RelatedTopics"] as? [Dictionary<String,Any>] else{print("error"); return}
-                
-                for item in content {
-                    Actor.createActor(actorInfo: item, inContext: self.managedObjectContext)
-                    self.managedObjectContext.mr_saveToPersistentStoreAndWait()
-                }
-            }
-        }
-    }
-    
-    // MARK: - Icon Presentation
-    
-    @IBAction func flip(_ sender: Any) {
     }
 
     // MARK: - NSFetchedResultsControllerDelegate
-
+    
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.tableView.beginUpdates()
     }
@@ -87,9 +56,9 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
     }
     
     // MARK: - Table View
-
+    
     func cellIdentifier(at indexPath: IndexPath) -> String {
-        return "ActorTitleCell"
+        return CastPosterTableCell.cell_id
     }
     
     func nextCellForTableView(_ tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
@@ -120,16 +89,16 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.nextCellForTableView(tableView, at: indexPath)
+        let cell: CastPosterTableCell = self.nextCellForTableView(tableView, at: indexPath) as! CastPosterTableCell
         let actor: Actor = fetchedResultsController.object(at: indexPath)
         
-        cell.textLabel!.text = actor.name
+        self.handleIconImage(at: actor.iconURL, imageView: cell.actorImageView!)
         cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         return cell
     }
-
+    
     // MARK: - Storyboard
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "actorDetailSegue" {
@@ -146,5 +115,5 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
             }
         }
     }
-
+    
 }

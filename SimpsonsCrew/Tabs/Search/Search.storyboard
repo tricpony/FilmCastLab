@@ -50,7 +50,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sQe-HM-0Lh"/>
                     </view>
-                    <navigationItem key="navigationItem" id="J7W-1V-PNv"/>
+                    <navigationItem key="navigationItem" id="J7W-1V-PNv">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="zLs-dE-gOT">
+                            <connections>
+                                <segue destination="j1l-rj-XHK" kind="popoverPresentation" identifier="flipSegue" popoverAnchorBarButtonItem="zLs-dE-gOT" id="F7C-LN-GxH">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="NpM-ui-Biz" id="xY3-OR-Qfc"/>
                     </connections>
@@ -58,6 +66,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IVt-oV-2Fh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="350" y="120"/>
+        </scene>
+        <!--CastPosterViewController-->
+        <scene sceneID="6lR-bu-d0s">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CastPosterViewController" id="j1l-rj-XHK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TkT-Gr-KQT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1086" y="-163"/>
         </scene>
         <!--Detail-->
         <scene sceneID="XSq-Hx-RoZ">

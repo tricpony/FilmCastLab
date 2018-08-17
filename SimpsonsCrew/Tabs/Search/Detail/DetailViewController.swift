@@ -31,6 +31,7 @@ class DetailViewController: BaseViewController {
             self.emptySelectionLabel.isHidden = false
         }else{
             let iconAddress = self.actor?.iconURL
+//            let image = self.fetchIconImage(at: iconAddress)
             var image: UIImage?
             var sceneTitle: String = (self.actor?.name)!
             

@@ -51,6 +51,14 @@
 		D1DE5ADB21235180004DFA10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1DE5A9421234EAB004DFA10 /* LaunchScreen.storyboard */; };
 		D1DE5ADE212351D4004DFA10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DE5ADD212351D4004DFA10 /* AppDelegate.swift */; };
 		D1DE5ADF212352ED004DFA10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DE5ADD212351D4004DFA10 /* AppDelegate.swift */; };
+		D1FBCDCF212757F70021FA2B /* CastPosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCDCE212757F70021FA2B /* CastPosterViewController.swift */; };
+		D1FBCDD0212757F70021FA2B /* CastPosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCDCE212757F70021FA2B /* CastPosterViewController.swift */; };
+		D1FBCDD22127587A0021FA2B /* CastPosterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FBCDD12127587A0021FA2B /* CastPosterViewController.storyboard */; };
+		D1FBCDD32127587A0021FA2B /* CastPosterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FBCDD12127587A0021FA2B /* CastPosterViewController.storyboard */; };
+		D1FBCDD7212760990021FA2B /* CastPosterTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCDD5212760990021FA2B /* CastPosterTableCell.swift */; };
+		D1FBCDD8212760990021FA2B /* CastPosterTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCDD5212760990021FA2B /* CastPosterTableCell.swift */; };
+		D1FBCDD9212760990021FA2B /* CastPosterTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1FBCDD6212760990021FA2B /* CastPosterTableCell.xib */; };
+		D1FBCDDA212760990021FA2B /* CastPosterTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1FBCDD6212760990021FA2B /* CastPosterTableCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +93,10 @@
 		D1DE5A9F21234EEE004DFA10 /* WireCast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WireCast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1DE5AAF21234EEE004DFA10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1DE5ADD212351D4004DFA10 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D1FBCDCE212757F70021FA2B /* CastPosterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastPosterViewController.swift; sourceTree = "<group>"; };
+		D1FBCDD12127587A0021FA2B /* CastPosterViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CastPosterViewController.storyboard; sourceTree = "<group>"; };
+		D1FBCDD5212760990021FA2B /* CastPosterTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastPosterTableCell.swift; sourceTree = "<group>"; };
+		D1FBCDD6212760990021FA2B /* CastPosterTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastPosterTableCell.xib; sourceTree = "<group>"; };
 		DD9B95066C2D7C0246080D39 /* Pods_SimpsonsCrew.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpsonsCrew.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F82AF2EB1A9AB9709932AB6F /* Pods-WireCrew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WireCrew.release.xcconfig"; path = "Pods/Target Support Files/Pods-WireCrew/Pods-WireCrew.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -216,6 +228,7 @@
 				D164AB062124711800CB9136 /* SearchViewController.swift */,
 				D164AB0C2124718800CB9136 /* Search.storyboard */,
 				D164AB04212470B400CB9136 /* Detail */,
+				D1FBCDCC2127578C0021FA2B /* CastPoster */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -291,6 +304,33 @@
 				D164AAE32123869C00CB9136 /* FilmCastLab-Bridging-Header.h */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		D1FBCDCC2127578C0021FA2B /* CastPoster */ = {
+			isa = PBXGroup;
+			children = (
+				D1FBCDD4212760650021FA2B /* TableAssets */,
+				D1FBCDCD2127578C0021FA2B /* Presentation */,
+				D1FBCDCE212757F70021FA2B /* CastPosterViewController.swift */,
+				D1FBCDD12127587A0021FA2B /* CastPosterViewController.storyboard */,
+			);
+			path = CastPoster;
+			sourceTree = "<group>";
+		};
+		D1FBCDCD2127578C0021FA2B /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		D1FBCDD4212760650021FA2B /* TableAssets */ = {
+			isa = PBXGroup;
+			children = (
+				D1FBCDD5212760990021FA2B /* CastPosterTableCell.swift */,
+				D1FBCDD6212760990021FA2B /* CastPosterTableCell.xib */,
+			);
+			path = TableAssets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,8 +416,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1FBCDD9212760990021FA2B /* CastPosterTableCell.xib in Resources */,
 				D1DE5A9621234EAB004DFA10 /* LaunchScreen.storyboard in Resources */,
 				D1DE5A9321234EAB004DFA10 /* Assets.xcassets in Resources */,
+				D1FBCDD22127587A0021FA2B /* CastPosterViewController.storyboard in Resources */,
 				D164AB19212482FC00CB9136 /* Favorites.storyboard in Resources */,
 				D164AB0D2124718800CB9136 /* Search.storyboard in Resources */,
 				D164AB102124719900CB9136 /* Detail.storyboard in Resources */,
@@ -389,8 +431,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1FBCDDA212760990021FA2B /* CastPosterTableCell.xib in Resources */,
 				D1DE5ADB21235180004DFA10 /* LaunchScreen.storyboard in Resources */,
 				D164AB1A212482FC00CB9136 /* Favorites.storyboard in Resources */,
+				D1FBCDD32127587A0021FA2B /* CastPosterViewController.storyboard in Resources */,
 				D164AB0E2124718800CB9136 /* Search.storyboard in Resources */,
 				D164AB112124719900CB9136 /* Detail.storyboard in Resources */,
 				D1618AE42124CC6600FB36C3 /* Assets.xcassets in Resources */,
@@ -480,6 +524,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1FBCDCF212757F70021FA2B /* CastPosterViewController.swift in Sources */,
 				D164AAF02123993200CB9136 /* FilmCast.xcdatamodeld in Sources */,
 				D1618AEB212525D600FB36C3 /* Favorite+CoreDataProperties.swift in Sources */,
 				D164AAFD2123DD6800CB9136 /* Actor+CoreDataProperties.swift in Sources */,
@@ -487,6 +532,7 @@
 				D164AB132124747C00CB9136 /* CoreDataUtility.swift in Sources */,
 				D164AAEB212395A400CB9136 /* BaseViewController.swift in Sources */,
 				D164AB072124711800CB9136 /* SearchViewController.swift in Sources */,
+				D1FBCDD7212760990021FA2B /* CastPosterTableCell.swift in Sources */,
 				D1618AED212525DE00FB36C3 /* Favorite+CoreDataClass.swift in Sources */,
 				D1DE5ADE212351D4004DFA10 /* AppDelegate.swift in Sources */,
 				D164AAF82123A6E400CB9136 /* ServiceManager.swift in Sources */,
@@ -502,6 +548,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1FBCDD0212757F70021FA2B /* CastPosterViewController.swift in Sources */,
 				D164AB082124711800CB9136 /* SearchViewController.swift in Sources */,
 				D164AB17212482C000CB9136 /* FavoritesViewController.swift in Sources */,
 				D1618AEF2125289200FB36C3 /* Favorite+CoreDataClass.swift in Sources */,
@@ -509,6 +556,7 @@
 				D164AB012123DDE900CB9136 /* Actor+CoreDataClass.swift in Sources */,
 				D1618AF32125600B00FB36C3 /* SplitViewController.swift in Sources */,
 				D1618AF22125600700FB36C3 /* BaseViewController.swift in Sources */,
+				D1FBCDD8212760990021FA2B /* CastPosterTableCell.swift in Sources */,
 				D164AB022123DE0100CB9136 /* FilmCast.xcdatamodeld in Sources */,
 				D1618AEE2125288D00FB36C3 /* Favorite+CoreDataProperties.swift in Sources */,
 				D164AAFE2123DD6800CB9136 /* Actor+CoreDataProperties.swift in Sources */,
