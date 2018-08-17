@@ -43,7 +43,7 @@ class DetailViewController: BaseViewController {
                 let iconUrl = URL.init(string: iconAddress!)
 
                 self.pinWheel.isHidden = false
-                self.pinWheel.stopAnimating()
+                self.pinWheel.startAnimating()
                 
                 ServiceManager.startImageService(at: iconUrl!) { (error: Error?, data: Data?) in
                     
