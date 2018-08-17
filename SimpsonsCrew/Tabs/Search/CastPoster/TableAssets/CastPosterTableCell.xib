@@ -12,34 +12,39 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CastPosterTableCell" customModule="SimpsonsCast" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="48" id="KGk-i7-Jjw" customClass="CastPosterTableCell" customModule="SimpsonsCast" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="47.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="M87-ua-FzU">
+                        <rect key="frame" x="150" y="14" width="20" height="20"/>
+                    </activityIndicatorView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M0b-gh-Str">
-                        <rect key="frame" x="40" y="2" width="240" height="100.5"/>
+                        <rect key="frame" x="40" y="2" width="240" height="44"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="240" id="0RY-Az-q6N"/>
-                            <constraint firstAttribute="height" constant="100" id="uoL-T7-PVl"/>
+                            <constraint firstAttribute="width" constant="240" placeholder="YES" id="0RY-Az-q6N"/>
+                            <constraint firstAttribute="height" priority="999" constant="44" id="uoL-T7-PVl"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="M0b-gh-Str" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="0uW-AX-xzb"/>
                     <constraint firstItem="M0b-gh-Str" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="78j-Ho-2hd"/>
                     <constraint firstItem="M0b-gh-Str" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="7qe-Vd-mXo"/>
+                    <constraint firstItem="M87-ua-FzU" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="JXj-05-2pH"/>
+                    <constraint firstItem="M87-ua-FzU" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Pci-66-f6D"/>
                     <constraint firstAttribute="bottom" secondItem="M0b-gh-Str" secondAttribute="bottom" constant="2" id="d8R-8X-auQ"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="actorImageView" destination="M0b-gh-Str" id="ph3-jQ-6cV"/>
-                <outlet property="heightConstraint" destination="uoL-T7-PVl" id="CQg-Ai-Bm2"/>
-                <outlet property="widthContraint" destination="0RY-Az-q6N" id="0dM-SF-UfV"/>
+                <outlet property="heightConstraint" destination="uoL-T7-PVl" id="WXm-jg-nLr"/>
+                <outlet property="pinwheel" destination="M87-ua-FzU" id="JC7-m8-Dr6"/>
             </connections>
+            <point key="canvasLocation" x="34" y="56"/>
         </tableViewCell>
     </objects>
 </document>

@@ -11,6 +11,7 @@ import CoreData
 
 @objc(Actor)
 public class Actor: NSManagedObject {
+    var transientImage: UIImage?
 
     /**
      actorInfo looks like this:

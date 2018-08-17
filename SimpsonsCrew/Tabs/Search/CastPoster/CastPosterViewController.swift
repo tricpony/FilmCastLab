@@ -28,8 +28,19 @@ class CastPosterViewController: BaseViewController, NSFetchedResultsControllerDe
         return aFetchedResultsController as! NSFetchedResultsController<Actor>
     }()
     
+    func registerTableAssets() {
+        var nib: UINib!
+        
+        nib = UINib.init(nibName: "CastPosterTableCell", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: CastPosterTableCell.cell_id)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.registerTableAssets()
+        //enable auto cell height that uses constraints
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
+        self.tableView.estimatedRowHeight = 110;
     }
 
     // MARK: - NSFetchedResultsControllerDelegate
@@ -92,7 +103,26 @@ class CastPosterViewController: BaseViewController, NSFetchedResultsControllerDe
         let cell: CastPosterTableCell = self.nextCellForTableView(tableView, at: indexPath) as! CastPosterTableCell
         let actor: Actor = fetchedResultsController.object(at: indexPath)
         
-        self.handleIconImage(at: actor.iconURL, imageView: cell.actorImageView!)
+        if actor.transientImage != nil {
+            cell.actorImageView.image = actor.transientImage
+            cell.configGeometry()
+        }else{
+            self.handleIconImage(at: actor.iconURL,
+                                 imageView: cell.actorImageView!,
+                                 pinwheel: cell.pinwheel!,
+                                 placeholderImageName: "Members_tab_small",
+                                 indexPath: indexPath,
+                                 reloadCallBack: { (indexPath) in
+
+                                    if cell.actorImageView.image != nil {
+                                        actor.transientImage = cell.actorImageView.image
+                                    }
+                                    tableView.beginUpdates()
+                                    cell.configGeometry()
+                                    tableView.endUpdates()
+                                })
+        }
+        
         cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         return cell
     }

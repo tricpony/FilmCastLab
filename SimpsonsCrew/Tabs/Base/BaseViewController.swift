@@ -30,15 +30,29 @@ class BaseViewController: UIViewController {
         return BaseViewController.sizeClass()
     }
 
-    func handleIconImage(at address: String?, imageView: UIImageView) {
+    typealias MethodType = (_ indexPath : IndexPath)  -> Void
+
+    func handleIconImage(at address: String?,
+                         imageView: UIImageView,
+                         pinwheel: UIActivityIndicatorView,
+                         placeholderImageName: String,
+                         indexPath: IndexPath? = nil,
+                         reloadCallBack: MethodType? = nil) {
         let iconAddress = address
         var image: UIImage?
         
         if (iconAddress == nil || (iconAddress?.isEmpty)!) {
-            image = UIImage(named: "Members_tab", in: Bundle.main, compatibleWith: nil)
+            image = UIImage(named: placeholderImageName, in: Bundle.main, compatibleWith: nil)
             imageView.image = image
+            
+            if (reloadCallBack != nil) {
+                reloadCallBack!(indexPath!)
+            }
         }else{
             let iconUrl = URL.init(string: iconAddress!)
+            
+            pinwheel.isHidden = false
+            pinwheel.startAnimating()
             
             ServiceManager.startImageService(at: iconUrl!) { (error: Error?, data: Data?) in
                 
@@ -50,9 +64,13 @@ class BaseViewController: UIViewController {
                     image = UIImage.init(data: data!)
                     
                     DispatchQueue.main.async {
-//                        self.pinWheel.isHidden = true
-//                        self.pinWheel.stopAnimating()
+                        pinwheel.isHidden = true
+                        pinwheel.stopAnimating()
                         imageView.image = image
+                        
+                        if (reloadCallBack != nil) {
+                            reloadCallBack!(indexPath!)
+                        }
                     }
 
                 }else{

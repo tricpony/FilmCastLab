@@ -19,6 +19,6 @@ extension Actor {
     @NSManaged public var iconURL: String?
     @NSManaged public var name: String?
     @NSManaged public var profile: String?
-    @NSManaged public var favorite: Favorite?
+    @NSManaged public var favorite: Favorite?    
 
 }
