@@ -116,6 +116,9 @@ class FavoritesViewController: UITableViewController, NSFetchedResultsController
                 vc.navigationItem.title = "Simpsons Cast Member"
                 vc.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 vc.navigationItem.leftItemsSupplementBackButton = true
+                
+                //this clears the title of the back button to leave only the chevron
+                self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             }
         }
     }
