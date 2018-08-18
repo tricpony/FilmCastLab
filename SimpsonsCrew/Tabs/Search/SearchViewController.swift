@@ -61,12 +61,17 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
     // MARK: - Icon Presentation
     
     @IBAction func flip(_ sender: Any) {
-        let sb = UIStoryboard.init(name: "CastPosterViewController", bundle: nil)
-        let destinationViewController = sb.instantiateInitialViewController()
         
-        destinationViewController?.modalPresentationStyle = .custom
-        destinationViewController?.transitioningDelegate = self
-        self.present(destinationViewController!, animated: true, completion: nil)
+        if self.splitViewController?.traitCollection.horizontalSizeClass == .regular {
+            self.performSegue(withIdentifier: "castPosterSeque", sender: self)
+        }else{
+            let sb = UIStoryboard.init(name: "CastPosterViewController", bundle: nil)
+            let destinationViewController = sb.instantiateInitialViewController()
+            
+            destinationViewController?.modalPresentationStyle = .custom
+            destinationViewController?.transitioningDelegate = self
+            self.present(destinationViewController!, animated: true, completion: nil)
+        }
     }
 
     // MARK: - NSFetchedResultsControllerDelegate

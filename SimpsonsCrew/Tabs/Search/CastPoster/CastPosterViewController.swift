@@ -42,10 +42,12 @@ class CastPosterViewController: BaseViewController, NSFetchedResultsControllerDe
         self.tableView.rowHeight = UITableViewAutomaticDimension;
         self.tableView.estimatedRowHeight = 110;
 
-        var done: UIBarButtonItem
+        if self.splitViewController?.traitCollection.horizontalSizeClass != .regular {
+            var done: UIBarButtonItem
 
-        done = UIBarButtonItem.init(barButtonSystemItem: .done, target: self, action: #selector(dismissCompactModal))
-        self.navigationItem.leftBarButtonItem = done
+            done = UIBarButtonItem.init(barButtonSystemItem: .done, target: self, action: #selector(dismissCompactModal))
+            self.navigationItem.leftBarButtonItem = done
+        }
     }
 
     // MARK: - NSFetchedResultsControllerDelegate
@@ -138,7 +140,7 @@ class CastPosterViewController: BaseViewController, NSFetchedResultsControllerDe
                 let actor: Actor = fetchedResultsController.object(at: indexPath)
                 let vc = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 vc.actor = actor
-                vc.forceDoneButton = true
+                vc.forceDoneButton = self.splitViewController?.traitCollection.horizontalSizeClass != .regular
                 vc.navigationItem.title = "Simpsons Cast Member"
                 vc.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 vc.navigationItem.leftItemsSupplementBackButton = true

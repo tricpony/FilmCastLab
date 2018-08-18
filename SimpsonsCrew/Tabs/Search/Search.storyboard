@@ -51,7 +51,7 @@
                         <viewLayoutGuide key="safeArea" id="sQe-HM-0Lh"/>
                     </view>
                     <navigationItem key="navigationItem" id="J7W-1V-PNv">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="zLs-dE-gOT">
+                        <barButtonItem key="rightBarButtonItem" image="Members_tab_small" id="zLs-dE-gOT">
                             <connections>
                                 <action selector="flip:" destination="cGt-8q-rKw" id="OI5-cz-y9k"/>
                             </connections>
@@ -59,11 +59,22 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="NpM-ui-Biz" id="xY3-OR-Qfc"/>
+                        <segue destination="RPl-Fg-DYX" kind="show" identifier="castPosterSeque" id="oBW-pz-K0i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IVt-oV-2Fh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="350" y="120"/>
+        </scene>
+        <!--CastPosterViewController-->
+        <scene sceneID="uGX-Ir-9B1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CastPosterViewController" id="RPl-Fg-DYX" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="au1-vK-SbE"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MLH-ZK-yEI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1135" y="-112"/>
         </scene>
         <!--Detail-->
         <scene sceneID="XSq-Hx-RoZ">
@@ -95,6 +106,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Members_tab_small" width="30" height="32"/>
         <image name="icon_search" width="30" height="30"/>
     </resources>
 </document>
