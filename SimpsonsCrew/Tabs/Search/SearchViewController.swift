@@ -61,6 +61,12 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
     // MARK: - Icon Presentation
     
     @IBAction func flip(_ sender: Any) {
+        let sb = UIStoryboard.init(name: "CastPosterViewController", bundle: nil)
+        let destinationViewController = sb.instantiateInitialViewController()
+        
+        destinationViewController?.modalPresentationStyle = .custom
+        destinationViewController?.transitioningDelegate = self
+        self.present(destinationViewController!, animated: true, completion: nil)
     }
 
     // MARK: - NSFetchedResultsControllerDelegate
@@ -148,3 +154,24 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
     }
 
 }
+
+extension SearchViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController,
+                             presenting: UIViewController,
+                             source: UIViewController)
+        -> UIViewControllerAnimatedTransitioning? {
+            
+            let x: CGFloat = 55.0
+            let y: CGFloat = 50.0
+            let w: CGFloat = self.tableView.bounds.size.width - x
+            let h: CGFloat = self.tableView.bounds.size.height - y
+
+            let frame = CGRect(
+                origin: CGPoint(x: x, y: y),
+                size: CGSize(width: w, height: h)
+            )
+
+            return FlipPresentAnimationController(originFrame: frame)
+    }
+}
+

@@ -59,6 +59,10 @@
 		D1FBCDD8212760990021FA2B /* CastPosterTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCDD5212760990021FA2B /* CastPosterTableCell.swift */; };
 		D1FBCDD9212760990021FA2B /* CastPosterTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1FBCDD6212760990021FA2B /* CastPosterTableCell.xib */; };
 		D1FBCDDA212760990021FA2B /* CastPosterTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1FBCDD6212760990021FA2B /* CastPosterTableCell.xib */; };
+		D1FBCDDC21279DA80021FA2B /* FlipPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCDDB21279DA80021FA2B /* FlipPresentAnimationController.swift */; };
+		D1FBCDDD21279DA80021FA2B /* FlipPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCDDB21279DA80021FA2B /* FlipPresentAnimationController.swift */; };
+		D1FBCDDF21279EBE0021FA2B /* AnimationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCDDE21279EBE0021FA2B /* AnimationHelper.swift */; };
+		D1FBCDE021279EBE0021FA2B /* AnimationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCDDE21279EBE0021FA2B /* AnimationHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +101,8 @@
 		D1FBCDD12127587A0021FA2B /* CastPosterViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CastPosterViewController.storyboard; sourceTree = "<group>"; };
 		D1FBCDD5212760990021FA2B /* CastPosterTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastPosterTableCell.swift; sourceTree = "<group>"; };
 		D1FBCDD6212760990021FA2B /* CastPosterTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastPosterTableCell.xib; sourceTree = "<group>"; };
+		D1FBCDDB21279DA80021FA2B /* FlipPresentAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipPresentAnimationController.swift; sourceTree = "<group>"; };
+		D1FBCDDE21279EBE0021FA2B /* AnimationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationHelper.swift; sourceTree = "<group>"; };
 		DD9B95066C2D7C0246080D39 /* Pods_SimpsonsCrew.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpsonsCrew.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F82AF2EB1A9AB9709932AB6F /* Pods-WireCrew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WireCrew.release.xcconfig"; path = "Pods/Target Support Files/Pods-WireCrew/Pods-WireCrew.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,6 +150,7 @@
 		D1618AE621251A5200FB36C3 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				D1FBCDDE21279EBE0021FA2B /* AnimationHelper.swift */,
 				D1618AE721251A7200FB36C3 /* DeviceType.swift */,
 			);
 			path = Global;
@@ -320,6 +327,7 @@
 		D1FBCDCD2127578C0021FA2B /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				D1FBCDDB21279DA80021FA2B /* FlipPresentAnimationController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -527,10 +535,12 @@
 				D1FBCDCF212757F70021FA2B /* CastPosterViewController.swift in Sources */,
 				D164AAF02123993200CB9136 /* FilmCast.xcdatamodeld in Sources */,
 				D1618AEB212525D600FB36C3 /* Favorite+CoreDataProperties.swift in Sources */,
+				D1FBCDDC21279DA80021FA2B /* FlipPresentAnimationController.swift in Sources */,
 				D164AAFD2123DD6800CB9136 /* Actor+CoreDataProperties.swift in Sources */,
 				D1618AE821251A7200FB36C3 /* DeviceType.swift in Sources */,
 				D164AB132124747C00CB9136 /* CoreDataUtility.swift in Sources */,
 				D164AAEB212395A400CB9136 /* BaseViewController.swift in Sources */,
+				D1FBCDDF21279EBE0021FA2B /* AnimationHelper.swift in Sources */,
 				D164AB072124711800CB9136 /* SearchViewController.swift in Sources */,
 				D1FBCDD7212760990021FA2B /* CastPosterTableCell.swift in Sources */,
 				D1618AED212525DE00FB36C3 /* Favorite+CoreDataClass.swift in Sources */,
@@ -551,10 +561,12 @@
 				D1FBCDD0212757F70021FA2B /* CastPosterViewController.swift in Sources */,
 				D164AB082124711800CB9136 /* SearchViewController.swift in Sources */,
 				D164AB17212482C000CB9136 /* FavoritesViewController.swift in Sources */,
+				D1FBCDDD21279DA80021FA2B /* FlipPresentAnimationController.swift in Sources */,
 				D1618AEF2125289200FB36C3 /* Favorite+CoreDataClass.swift in Sources */,
 				D164AAF62123A65600CB9136 /* API.swift in Sources */,
 				D164AB012123DDE900CB9136 /* Actor+CoreDataClass.swift in Sources */,
 				D1618AF32125600B00FB36C3 /* SplitViewController.swift in Sources */,
+				D1FBCDE021279EBE0021FA2B /* AnimationHelper.swift in Sources */,
 				D1618AF22125600700FB36C3 /* BaseViewController.swift in Sources */,
 				D1FBCDD8212760990021FA2B /* CastPosterTableCell.swift in Sources */,
 				D164AB022123DE0100CB9136 /* FilmCast.xcdatamodeld in Sources */,
