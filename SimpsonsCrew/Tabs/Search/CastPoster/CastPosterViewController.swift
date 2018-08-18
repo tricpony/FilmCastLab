@@ -41,6 +41,17 @@ class CastPosterViewController: BaseViewController, NSFetchedResultsControllerDe
         //enable auto cell height that uses constraints
         self.tableView.rowHeight = UITableViewAutomaticDimension;
         self.tableView.estimatedRowHeight = 110;
+        
+        if Display.isIphone() {
+            var done: UIBarButtonItem
+            
+            //on the non-plus phone size class the split view detail expands as a modal, presenting buttom to top
+            //unclear if this is caused by a flaw in my code or Apple or if it is expected behavior
+            //but I could never force a normal push navigation without breaking another size class
+            //consequently, unless we add this button there is no way back to the master view controller
+            done = UIBarButtonItem.init(barButtonSystemItem: .done, target: self, action: #selector(dismissCompactModal))
+            self.navigationItem.leftBarButtonItem = done
+        }
     }
 
     // MARK: - NSFetchedResultsControllerDelegate
@@ -107,7 +118,7 @@ class CastPosterViewController: BaseViewController, NSFetchedResultsControllerDe
             cell.actorImageView.image = actor.transientImage
             cell.configGeometry()
         }else{
-            self.handleIconImage(at: actor.iconURL,
+            self.loadIconImage(at: actor.iconURL,
                                  imageView: cell.actorImageView!,
                                  pinwheel: cell.pinwheel!,
                                  placeholderImageName: "Members_tab_small",
@@ -127,12 +138,17 @@ class CastPosterViewController: BaseViewController, NSFetchedResultsControllerDe
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        self.performSegue(withIdentifier: "actorDetailSegue", sender: indexPath)
+    }
+    
     // MARK: - Storyboard
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "actorDetailSegue" {
-            if let indexPath = tableView.indexPathForSelectedRow {
+            if let indexPath = sender as? IndexPath {
                 let actor: Actor = fetchedResultsController.object(at: indexPath)
                 let vc = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 vc.actor = actor

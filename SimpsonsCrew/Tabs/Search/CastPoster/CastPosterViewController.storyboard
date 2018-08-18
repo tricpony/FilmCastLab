@@ -31,7 +31,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="fnB-Tq-T9d" kind="showDetail" id="B8u-t9-jDQ"/>
+                                            <segue destination="fnB-Tq-T9d" kind="showDetail" identifier="actorDetailSegue" id="B8u-t9-jDQ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

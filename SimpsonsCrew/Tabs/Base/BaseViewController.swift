@@ -32,7 +32,7 @@ class BaseViewController: UIViewController {
 
     typealias MethodType = (_ indexPath : IndexPath)  -> Void
 
-    func handleIconImage(at address: String?,
+    func loadIconImage(at address: String?,
                          imageView: UIImageView,
                          pinwheel: UIActivityIndicatorView,
                          placeholderImageName: String,
@@ -81,6 +81,10 @@ class BaseViewController: UIViewController {
                 }
             }
         }
+    }
+
+    @objc func dismissCompactModal() {
+        self.dismiss(animated: true, completion: nil)
     }
 
 }

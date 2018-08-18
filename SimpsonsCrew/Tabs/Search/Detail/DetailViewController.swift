@@ -90,10 +90,6 @@ class DetailViewController: BaseViewController {
         }
     }
     
-    @objc func dismissCompactModal() {
-        self.dismiss(animated: true, completion: nil)
-    }
-
     @IBAction func toggleStatusFavorite(_ sender: Any) {
         
         if (self.actor == nil) {
