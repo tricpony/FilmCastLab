@@ -17,7 +17,7 @@ class DetailViewController: BaseViewController {
     @IBOutlet weak var actorImageWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var actorImageHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var favoritesNavBarItem: UIBarButtonItem!
-    var foreDoneButton = false
+    var forceDoneButton = false
     
     var actor: Actor? = nil
     
@@ -75,7 +75,7 @@ class DetailViewController: BaseViewController {
             }
             self.actorTitle.text = sceneTitle
             self.actorProfile.text = self.actor?.profile
-            if Display.isIphone() || self.foreDoneButton == true {
+            if Display.isIphone() || self.forceDoneButton == true {
                 var done: UIBarButtonItem
                 
                 //on the non-plus phone size class the split view detail expands as a modal, presenting buttom to top

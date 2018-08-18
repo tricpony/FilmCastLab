@@ -138,7 +138,7 @@ class CastPosterViewController: BaseViewController, NSFetchedResultsControllerDe
                 let actor: Actor = fetchedResultsController.object(at: indexPath)
                 let vc = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 vc.actor = actor
-                vc.foreDoneButton = true
+                vc.forceDoneButton = true
                 vc.navigationItem.title = "Simpsons Cast Member"
                 vc.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 vc.navigationItem.leftItemsSupplementBackButton = true
