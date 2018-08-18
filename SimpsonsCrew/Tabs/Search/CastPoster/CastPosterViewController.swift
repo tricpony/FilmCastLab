@@ -87,21 +87,13 @@ class CastPosterViewController: BaseViewController, NSFetchedResultsControllerDe
         return cell!
     }
     
-    func resultsSectionCount() -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController.sections?.count ?? 0
     }
     
-    func resultsRowCount(in section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = fetchedResultsController.sections![section]
         return sectionInfo.numberOfObjects
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return self.resultsSectionCount()
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.resultsRowCount(in: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -146,6 +138,7 @@ class CastPosterViewController: BaseViewController, NSFetchedResultsControllerDe
                 let actor: Actor = fetchedResultsController.object(at: indexPath)
                 let vc = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 vc.actor = actor
+                vc.foreDoneButton = true
                 vc.navigationItem.title = "Simpsons Cast Member"
                 vc.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 vc.navigationItem.leftItemsSupplementBackButton = true
