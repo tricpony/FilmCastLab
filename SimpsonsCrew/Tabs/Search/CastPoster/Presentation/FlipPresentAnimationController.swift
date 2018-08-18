@@ -39,6 +39,7 @@ class FlipPresentAnimationController: NSObject, UIViewControllerAnimatedTransiti
         
         AnimationHelper.perspectiveTransform(for: containerView)
         snapshot.layer.transform = AnimationHelper.yRotation(.pi / 2)
+        snapshot.alpha = 0
         let duration = transitionDuration(using: transitionContext)
 
         UIView.animateKeyframes(
@@ -47,32 +48,25 @@ class FlipPresentAnimationController: NSObject, UIViewControllerAnimatedTransiti
             options: .calculationModeCubic,
             animations: {
                 
-                //shrink the from view
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1/4) {
-                    fromVC.view.frame = self.originFrame
-                    snapshot.layer.cornerRadius = snapshot.layer.cornerRadius
-                }
-
-                // 2
-                UIView.addKeyframe(withRelativeStartTime: 1/4, relativeDuration: 1/4) {
-                    fromVC.view.layer.transform = AnimationHelper.yRotation(-.pi / 2)
+                //fade the from view
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1/3) {
+                    fromVC.view.alpha = 0.2
                 }
                 
-                // 3
-                UIView.addKeyframe(withRelativeStartTime: 2/4, relativeDuration: 1/4) {
+                UIView.addKeyframe(withRelativeStartTime: 1/3, relativeDuration: 1/3) {
                     snapshot.layer.transform = AnimationHelper.yRotation(0.0)
+                    snapshot.alpha = 1
                 }
                 
-                // 4
-                UIView.addKeyframe(withRelativeStartTime: 3/4, relativeDuration: 1/4) {
+                UIView.addKeyframe(withRelativeStartTime: 2/3, relativeDuration: 1/3) {
                     snapshot.frame = finalFrame
                     snapshot.layer.cornerRadius = 0
                 }
+                
         },
-            // 5
             completion: { _ in
                 toVC.view.isHidden = false
-                fromVC.view.frame = finalFrame
+                fromVC.view.alpha = 1
                 snapshot.removeFromSuperview()
                 fromVC.view.layer.transform = CATransform3DIdentity
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
