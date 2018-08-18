@@ -41,17 +41,11 @@ class CastPosterViewController: BaseViewController, NSFetchedResultsControllerDe
         //enable auto cell height that uses constraints
         self.tableView.rowHeight = UITableViewAutomaticDimension;
         self.tableView.estimatedRowHeight = 110;
-        
-        if Display.isIphone() {
-            var done: UIBarButtonItem
-            
-            //on the non-plus phone size class the split view detail expands as a modal, presenting buttom to top
-            //unclear if this is caused by a flaw in my code or Apple or if it is expected behavior
-            //but I could never force a normal push navigation without breaking another size class
-            //consequently, unless we add this button there is no way back to the master view controller
-            done = UIBarButtonItem.init(barButtonSystemItem: .done, target: self, action: #selector(dismissCompactModal))
-            self.navigationItem.leftBarButtonItem = done
-        }
+
+        var done: UIBarButtonItem
+
+        done = UIBarButtonItem.init(barButtonSystemItem: .done, target: self, action: #selector(dismissCompactModal))
+        self.navigationItem.leftBarButtonItem = done
     }
 
     // MARK: - NSFetchedResultsControllerDelegate
