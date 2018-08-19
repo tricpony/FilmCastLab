@@ -213,7 +213,9 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        if self.splitViewController?.traitCollection.horizontalSizeClass == .compact {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
 
     // MARK: - Storyboard

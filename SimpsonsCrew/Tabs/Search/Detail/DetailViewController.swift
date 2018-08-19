@@ -41,9 +41,6 @@ class DetailViewController: BaseViewController {
                 self.actorImageView.alpha = 0.7
                 sceneTitle += "\n( Image Unavailable )"
             }else{
-
-                self.pinWheel.isHidden = false
-                self.pinWheel.startAnimating()
                 
                 self.loadIconImage(at: self.actor?.iconURL,
                                    imageView: self.actorImageView!,
