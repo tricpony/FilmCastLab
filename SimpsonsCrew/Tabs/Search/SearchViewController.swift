@@ -60,7 +60,6 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupSearchController()
         
         //this will prevent bogus separator lines from displaying in an empty table
         self.tableView.tableFooterView = UIView()
@@ -70,14 +69,27 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
     }
 
     func setupSearchController() {
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search"
-        searchController.searchBar.barTintColor = UIColor.black
-        tableView.tableHeaderView = searchController.searchBar
-        definesPresentationContext = true
+        
+        //on initial launch of app we make the service call to fetch the data which returns in a closer
+        //in that case we must force the execution of this logic on the main thread to prevent a crash
+        //on every launch thereafter setupSearchController gets called on the main thread and this GCD
+        //call really does not matter
+        DispatchQueue.main.async {
+            self.searchController.searchResultsUpdater = self
+            self.searchController.obscuresBackgroundDuringPresentation = false
+            self.searchController.searchBar.placeholder = "Search"
+            self.searchController.searchBar.barTintColor = UIColor.black
+            self.tableView.tableHeaderView = self.searchController.searchBar
+            self.definesPresentationContext = true
+        }
     }
     
+    /**
+     This makes the service call and fetches the cast data
+     It will only perform the service call if there are no actor records in core data
+     After the service is done and data is loaded we install the search bar or if we
+     need not perform the service the bar is installed
+    **/
     func performCastService() {
         if CoreDataUtility.fetchActorCount(ctx: self.managedObjectContext) == 0 {
             let serviceRequest = ServiceManager()
@@ -94,7 +106,10 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
                     Actor.createActor(actorInfo: item, inContext: self.managedObjectContext)
                     self.managedObjectContext.mr_saveToPersistentStoreAndWait()
                 }
+                self.setupSearchController()
             }
+        }else{
+            self.setupSearchController()
         }
     }
     
@@ -180,7 +195,19 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         let cell = self.nextCellForTableView(tableView, at: indexPath)
         let actor: Actor = fetchedResultsController().object(at: indexPath)
         
-        cell.textLabel!.text = actor.name
+        if (isFiltering()) {
+            let highlightedSearchTerm = NSMutableAttributedString(string: actor.name!)
+            let range = actor.name?.range(of: searchController.searchBar.text!)
+            
+            highlightedSearchTerm.addAttribute(.backgroundColor,
+                                               value: UIColor.yellow,
+                                               range: NSRange.init(location: (range?.lowerBound.encodedOffset)!,
+                                                                   length: (range?.upperBound.encodedOffset)! - (range?.lowerBound.encodedOffset)!))
+            cell.textLabel?.attributedText = highlightedSearchTerm
+            
+        }else{
+            cell.textLabel!.text = actor.name
+        }
         cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         return cell
     }
@@ -207,6 +234,9 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
 }
 
 extension SearchViewController: UIViewControllerTransitioningDelegate {
+    /**
+     This supports a custom controller transition executed by tapping the nav-bar button
+    **/
     func animationController(forPresented presented: UIViewController,
                              presenting: UIViewController,
                              source: UIViewController)
