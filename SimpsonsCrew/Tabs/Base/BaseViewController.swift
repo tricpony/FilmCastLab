@@ -30,7 +30,7 @@ class BaseViewController: UIViewController {
         return BaseViewController.sizeClass()
     }
 
-    typealias MethodType = (_ indexPath : IndexPath)  -> Void
+    typealias MethodType = (_ indexPath : IndexPath?)  -> Void
 
     func loadIconImage(at address: String?,
                          imageView: UIImageView,
@@ -69,14 +69,22 @@ class BaseViewController: UIViewController {
                         imageView.image = image
                         
                         if (reloadCallBack != nil) {
-                            reloadCallBack!(indexPath!)
+                            if indexPath == nil {
+                                reloadCallBack!(nil)
+                            }else{
+                                reloadCallBack!(indexPath!)
+                            }
                         }
                     }
 
                 }else{
-                    image = UIImage(named: "Members_tab", in: Bundle.main, compatibleWith: nil)
+                    image = UIImage(named: placeholderImageName, in: Bundle.main, compatibleWith: nil)
                     DispatchQueue.main.async {
                         imageView.image = image
+                    }
+                    
+                    if (reloadCallBack != nil) {
+                        reloadCallBack!(indexPath!)
                     }
                 }
             }

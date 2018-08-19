@@ -42,36 +42,24 @@ class DetailViewController: BaseViewController {
                 self.actorImageView.alpha = 0.7
                 sceneTitle += "\n( Image Unavailable )"
             }else{
-                let iconUrl = URL.init(string: iconAddress!)
+//                let iconUrl = URL.init(string: iconAddress!)
 
                 self.pinWheel.isHidden = false
                 self.pinWheel.startAnimating()
                 
-                ServiceManager.startImageService(at: iconUrl!) { (error: Error?, data: Data?) in
-                    
-                    if error != nil {
-                        let nserror = error! as NSError
-                        fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-                    }
-                    if data != nil {
-                        image = UIImage.init(data: data!)
-                        
-                        DispatchQueue.main.async {
-                            self.pinWheel.isHidden = true
-                            self.pinWheel.stopAnimating()
-                            self.actorImageView.image = image
-                            self.actorImageWidthConstraint.constant = (image?.size.width)!
-                            self.actorImageHeightConstraint.constant = (image?.size.height)!
-                        }
+                self.loadIconImage(at: self.actor?.iconURL,
+                                   imageView: self.actorImageView!,
+                                   pinwheel: self.pinWheel!,
+                                   placeholderImageName: "Members_tab",
+                                   indexPath: nil,
+                                   reloadCallBack: { (nil) in
+                                    
+                                    DispatchQueue.main.async {
+                                        self.actorImageWidthConstraint.constant = (self.actorImageView.image?.size.width)!
+                                        self.actorImageHeightConstraint.constant = (self.actorImageView.image?.size.height)!
+                                    }
+                })
 
-                    }else{
-                        image = UIImage(named: "Members_tab", in: Bundle.main, compatibleWith: nil)
-                        DispatchQueue.main.async {
-                            self.actorImageView.image = image
-                        }
-                    }
-                    
-                }
             }
             self.actorTitle.text = sceneTitle
             self.actorProfile.text = self.actor?.profile

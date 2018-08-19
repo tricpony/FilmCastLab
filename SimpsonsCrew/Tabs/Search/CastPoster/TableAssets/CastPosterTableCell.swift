@@ -12,7 +12,6 @@ class CastPosterTableCell: UITableViewCell {
     static let cell_id = "CastPosterTableCell"
 
     @IBOutlet weak var actorImageView: UIImageView!
-    @IBOutlet weak var widthContraint: NSLayoutConstraint!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var pinwheel: UIActivityIndicatorView!
     
