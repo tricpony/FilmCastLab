@@ -32,7 +32,6 @@ class DetailViewController: BaseViewController {
             self.emptySelectionLabel.isHidden = false
         }else{
             let iconAddress = self.actor?.iconURL
-//            let image = self.fetchIconImage(at: iconAddress)
             var image: UIImage?
             var sceneTitle: String = (self.actor?.name)!
             
@@ -42,7 +41,6 @@ class DetailViewController: BaseViewController {
                 self.actorImageView.alpha = 0.7
                 sceneTitle += "\n( Image Unavailable )"
             }else{
-//                let iconUrl = URL.init(string: iconAddress!)
 
                 self.pinWheel.isHidden = false
                 self.pinWheel.startAnimating()
@@ -58,7 +56,7 @@ class DetailViewController: BaseViewController {
                                         self.actorImageWidthConstraint.constant = (self.actorImageView.image?.size.width)!
                                         self.actorImageHeightConstraint.constant = (self.actorImageView.image?.size.height)!
                                     }
-                })
+                    })
 
             }
             self.actorTitle.text = sceneTitle
