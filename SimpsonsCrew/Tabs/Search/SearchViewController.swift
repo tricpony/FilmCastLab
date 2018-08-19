@@ -70,7 +70,7 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
 
     func setupSearchController() {
         
-        //on initial launch of app we make the service call to fetch the data which returns in a closer
+        //on initial launch of app we make the service call to fetch the data which returns in a closure
         //in that case we must force the execution of this logic on the main thread to prevent a crash
         //on every launch thereafter setupSearchController gets called on the main thread and this GCD
         //call really does not matter
