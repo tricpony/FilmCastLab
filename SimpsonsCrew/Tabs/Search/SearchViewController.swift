@@ -8,9 +8,10 @@
 
 import UIKit
 
-class SearchViewController: BaseViewController, NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource {
+class SearchViewController: BaseViewController, NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
     @IBOutlet weak var tableView: UITableView!
-    lazy var fetchedResultsController: NSFetchedResultsController<Actor> = {
+    let searchController = UISearchController(searchResultsController: nil)
+    lazy var unfilteredFetchedResultsController: NSFetchedResultsController<Actor> = {
         let fetchRequest = CoreDataUtility.fetchRequestForAllActors(ctx: self.managedObjectContext)
         let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                                    managedObjectContext: self.managedObjectContext,
@@ -28,8 +29,38 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         return aFetchedResultsController as! NSFetchedResultsController<Actor>
     }()
     
+    func filteredFetchedResultsController() -> NSFetchedResultsController<Actor> {
+        let fetchRequest = CoreDataUtility.fetchRequestForActorsContaining(searchTerm: searchController.searchBar.text!, ctx: self.managedObjectContext)
+        let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                                   managedObjectContext: self.managedObjectContext,
+                                                                   sectionNameKeyPath: nil,
+                                                                   cacheName: nil)
+        aFetchedResultsController.delegate = self
+        
+        do {
+            try aFetchedResultsController.performFetch()
+        } catch {
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+        
+        return aFetchedResultsController as! NSFetchedResultsController<Actor>
+    }
+    
+    func fetchedResultsController() -> NSFetchedResultsController<Actor> {
+        let unfilteredFetchedResultsController = self.unfilteredFetchedResultsController
+        let filteredFetchedResultsController = self.filteredFetchedResultsController
+        
+        if isFiltering() {
+            return filteredFetchedResultsController()
+        }
+        
+        return unfilteredFetchedResultsController
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupSearchController()
         
         //this will prevent bogus separator lines from displaying in an empty table
         self.tableView.tableFooterView = UIView()
@@ -38,6 +69,15 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         self.performCastService()
     }
 
+    func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.barTintColor = UIColor.black
+        tableView.tableHeaderView = searchController.searchBar
+        definesPresentationContext = true
+    }
+    
     func performCastService() {
         if CoreDataUtility.fetchActorCount(ctx: self.managedObjectContext) == 0 {
             let serviceRequest = ServiceManager()
@@ -74,6 +114,20 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         }
     }
 
+    // MARK: - UISearchResultsUpdating
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        self.tableView.reloadData()
+    }
+
+    func searchBarIsEmpty() -> Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
+    }
+    
     // MARK: - NSFetchedResultsControllerDelegate
 
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -113,26 +167,18 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         return cell!
     }
     
-    func resultsSectionCount() -> Int {
-        return fetchedResultsController.sections?.count ?? 0
-    }
-    
-    func resultsRowCount(in section: Int) -> Int {
-        let sectionInfo = fetchedResultsController.sections![section]
-        return sectionInfo.numberOfObjects
-    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.resultsSectionCount()
+        return fetchedResultsController().sections?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.resultsRowCount(in: section)
+        let sectionInfo = fetchedResultsController().sections![section]
+        return sectionInfo.numberOfObjects
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.nextCellForTableView(tableView, at: indexPath)
-        let actor: Actor = fetchedResultsController.object(at: indexPath)
+        let actor: Actor = fetchedResultsController().object(at: indexPath)
         
         cell.textLabel!.text = actor.name
         cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
@@ -145,7 +191,7 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         
         if segue.identifier == "actorDetailSegue" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let actor: Actor = fetchedResultsController.object(at: indexPath)
+                let actor: Actor = fetchedResultsController().object(at: indexPath)
                 let vc = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 vc.actor = actor
                 vc.navigationItem.title = "Simpsons Cast Member"

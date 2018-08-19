@@ -15,13 +15,22 @@ class CoreDataUtility {
     }
     
     class func fetchRequestForAllActors(ctx: NSManagedObjectContext) -> NSFetchRequest<NSFetchRequestResult> {
-        let fetchRequest = Actor.mr_createFetchRequest();
+        let fetchRequest = Actor.mr_createFetchRequest(in: ctx)
         let sortOrder = NSSortDescriptor.init(key: "name", ascending: true)
         
         fetchRequest.sortDescriptors = [sortOrder]
         return fetchRequest
     }
 
+    class func fetchRequestForActorsContaining(searchTerm: String, ctx: NSManagedObjectContext) -> NSFetchRequest<NSFetchRequestResult> {
+        let q = self.containsTypePredicate(key: "name", value: searchTerm)
+        let fetchRequest = Actor.mr_requestAll(with: q, in: ctx)
+        let sortOrder = NSSortDescriptor.init(key: "name", ascending: true)
+        
+        fetchRequest.sortDescriptors = [sortOrder]
+        return fetchRequest
+    }
+    
     class func fetchActor(named name: String, in ctx: NSManagedObjectContext) -> Actor? {
         var actor: Actor? = nil
         let predicate = NSPredicate(format: "(%K = %@)", "name", name);
@@ -68,5 +77,16 @@ class CoreDataUtility {
         return q
     }
 
+    class func containsTypePredicate(key: String, value: Any) -> NSPredicate {
+        let lhs: NSExpression = NSExpression.init(forKeyPath: key)
+        let rhs: NSExpression = NSExpression.init(forConstantValue: value)
+        let q: NSPredicate = NSComparisonPredicate.init(leftExpression: lhs,
+                                                        rightExpression: rhs,
+                                                        modifier: NSComparisonPredicate.Modifier.direct,
+                                                        type: NSComparisonPredicate.Operator.contains,
+                                                        options: NSComparisonPredicate.Options.diacriticInsensitive)
 
+        return q
+    }
+    
 }
