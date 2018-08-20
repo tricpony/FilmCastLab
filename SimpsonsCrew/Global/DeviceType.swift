@@ -14,6 +14,7 @@ public enum DisplayType {
     case iphone5
     case iphone6
     case iphone6plus
+    case iphonex
     static let iphone7 = iphone6
     static let iphone7plus = iphone6plus
 }
@@ -41,6 +42,9 @@ public final class Display {
         }
         else if phone && maxLength == 736 {
             return .iphone6plus
+        }
+        else if phone && UIScreen.main.nativeBounds.height == 2436 {
+            return .iphonex
         }
         return .unknown
     }
