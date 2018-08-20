@@ -122,7 +122,16 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         }else{
             let sb = UIStoryboard.init(name: "CastPosterViewController", bundle: nil)
             let destinationViewController = sb.instantiateInitialViewController()
-            
+            let appDelegate = UIApplication.shared.delegate as? AppDelegate
+            let navVC = destinationViewController as? UINavigationController
+            let vc = navVC?.topViewController
+
+            if appDelegate?.appDisplayName() == "Simpsons Character Viewer" {
+                vc?.title = "Simpsons Cast"
+            }else{
+                vc?.title = "The Wire Cast"
+            }
+
             destinationViewController?.modalPresentationStyle = .custom
             destinationViewController?.transitioningDelegate = self
             self.present(destinationViewController!, animated: true, completion: nil)
