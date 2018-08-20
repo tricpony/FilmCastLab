@@ -47,7 +47,7 @@ class DetailViewController: BaseViewController {
                                    pinwheel: self.pinWheel!,
                                    placeholderImageName: "Members_tab",
                                    indexPath: nil,
-                                   reloadCallBack: { (nil) in
+                                   completion: { (nil) in
                                     
                                     DispatchQueue.main.async {
                                         self.actorImageWidthConstraint.constant = (self.actorImageView.image?.size.width)!

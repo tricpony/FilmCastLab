@@ -73,7 +73,7 @@ class CastPosterViewController: BaseViewController, NSFetchedResultsControllerDe
                     
                     self.loadIconImage(at: nextActor.iconURL,
                                        placeholderImageName: "Members_tab_small",
-                                       reloadCallBack: { (image) in
+                                       completion: { (image) in
                                         DispatchQueue.main.async {
                                             nextActor.transientImage = image
                                         }
@@ -151,7 +151,7 @@ class CastPosterViewController: BaseViewController, NSFetchedResultsControllerDe
                                  pinwheel: cell.pinwheel!,
                                  placeholderImageName: "Members_tab_small",
                                  indexPath: indexPath,
-                                 reloadCallBack: { (image) in
+                                 completion: { (image) in
 
                                     if cell.actorImageView.image != nil {
                                         actor.transientImage = image

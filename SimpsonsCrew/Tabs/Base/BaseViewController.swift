@@ -37,7 +37,7 @@ class BaseViewController: UIViewController {
                          pinwheel: UIActivityIndicatorView? = nil,
                          placeholderImageName: String = "",
                          indexPath: IndexPath? = nil,
-                         reloadCallBack: MethodType? = nil) {
+                         completion: MethodType? = nil) {
         let iconAddress = address
         var image: UIImage?
         
@@ -47,8 +47,8 @@ class BaseViewController: UIViewController {
                 imageView!.image = image
             }
             
-            if (reloadCallBack != nil) {
-                reloadCallBack!(image!)
+            if (completion != nil) {
+                completion!(image!)
             }
         }else{
             let iconUrl = URL.init(string: iconAddress!)
@@ -73,11 +73,11 @@ class BaseViewController: UIViewController {
                             imageView!.image = image
                         }
                         
-                        if (reloadCallBack != nil) {
+                        if (completion != nil) {
                             if indexPath == nil {
-                                reloadCallBack!(image!)
+                                completion!(image!)
                             }else{
-                                reloadCallBack!(image!)
+                                completion!(image!)
                             }
                         }
                     }
@@ -89,8 +89,8 @@ class BaseViewController: UIViewController {
                             imageView!.image = image
                         }
                         
-                        if (reloadCallBack != nil) {
-                            reloadCallBack!(image!)
+                        if (completion != nil) {
+                            completion!(image!)
                         }
 
                     }
