@@ -48,6 +48,46 @@ class CastPosterViewController: BaseViewController, NSFetchedResultsControllerDe
             done = UIBarButtonItem.init(barButtonSystemItem: .done, target: self, action: #selector(dismissCompactModal))
             self.navigationItem.leftBarButtonItem = done
         }
+        self.preLoadCastImages()
+    }
+    
+    /**
+     Pre-load cast images starting with the last one in the fetch results controller in a background thread to keep table scrolling smooth
+     This allows the table view to carry some of the load as it loads the first cells
+     Once preLoadCastImages finds an actor that already has loaded its image then we assume there are no others that need to be loaded
+     so abort
+    **/
+    func preLoadCastImages() {
+        var i = 0;
+        guard let actorCount = self.fetchedResultsController.fetchedObjects?.count else{
+            return
+        }
+        
+        DispatchQueue.global(qos: .background).async {
+
+            while i < actorCount {
+                let indexPath = IndexPath.init(row: actorCount - (i+1), section: 0)
+                let nextActor = self.fetchedResultsController.object(at: indexPath)
+                
+                if nextActor.transientImage == nil {
+                    
+                    self.loadIconImage(at: nextActor.iconURL,
+                                       placeholderImageName: "Members_tab_small",
+                                       reloadCallBack: { (image) in
+                                        DispatchQueue.main.async {
+                                            nextActor.transientImage = image
+                                        }
+
+                    })
+                    
+                }else{
+                    break
+                }
+                i += 1
+            }
+
+        }
+        
     }
 
     // MARK: - NSFetchedResultsControllerDelegate
@@ -111,10 +151,11 @@ class CastPosterViewController: BaseViewController, NSFetchedResultsControllerDe
                                  pinwheel: cell.pinwheel!,
                                  placeholderImageName: "Members_tab_small",
                                  indexPath: indexPath,
-                                 reloadCallBack: { (indexPath) in
+                                 reloadCallBack: { (image) in
 
                                     if cell.actorImageView.image != nil {
-                                        actor.transientImage = cell.actorImageView.image
+                                        actor.transientImage = image
+//                                        actor.transientImage = cell.actorImageView.image
                                     }
                                     tableView.beginUpdates()
                                     cell.configGeometry()

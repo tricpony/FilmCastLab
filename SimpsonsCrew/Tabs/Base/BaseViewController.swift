@@ -30,12 +30,12 @@ class BaseViewController: UIViewController {
         return BaseViewController.sizeClass()
     }
 
-    typealias MethodType = (_ indexPath : IndexPath?)  -> Void
+    typealias MethodType = (_ image: UIImage)  -> Void
 
     func loadIconImage(at address: String?,
-                         imageView: UIImageView,
-                         pinwheel: UIActivityIndicatorView,
-                         placeholderImageName: String,
+                         imageView: UIImageView? = nil,
+                         pinwheel: UIActivityIndicatorView? = nil,
+                         placeholderImageName: String = "",
                          indexPath: IndexPath? = nil,
                          reloadCallBack: MethodType? = nil) {
         let iconAddress = address
@@ -43,17 +43,20 @@ class BaseViewController: UIViewController {
         
         if (iconAddress == nil || (iconAddress?.isEmpty)!) {
             image = UIImage(named: placeholderImageName, in: Bundle.main, compatibleWith: nil)
-            imageView.image = image
+            if imageView != nil {
+                imageView!.image = image
+            }
             
             if (reloadCallBack != nil) {
-                reloadCallBack!(indexPath!)
+                reloadCallBack!(image!)
             }
         }else{
             let iconUrl = URL.init(string: iconAddress!)
             
-            pinwheel.isHidden = false
-            pinwheel.startAnimating()
-            
+            if pinwheel != nil {
+                pinwheel!.isHidden = false
+                pinwheel!.startAnimating()
+            }
             ServiceManager.startImageService(at: iconUrl!) { (error: Error?, data: Data?) in
                 
                 if error != nil {
@@ -64,15 +67,17 @@ class BaseViewController: UIViewController {
                     image = UIImage.init(data: data!)
                     
                     DispatchQueue.main.async {
-                        pinwheel.isHidden = true
-                        pinwheel.stopAnimating()
-                        imageView.image = image
+                        if imageView != nil {
+                            pinwheel!.isHidden = true
+                            pinwheel!.stopAnimating()
+                            imageView!.image = image
+                        }
                         
                         if (reloadCallBack != nil) {
                             if indexPath == nil {
-                                reloadCallBack!(nil)
+                                reloadCallBack!(image!)
                             }else{
-                                reloadCallBack!(indexPath!)
+                                reloadCallBack!(image!)
                             }
                         }
                     }
@@ -80,11 +85,14 @@ class BaseViewController: UIViewController {
                 }else{
                     image = UIImage(named: placeholderImageName, in: Bundle.main, compatibleWith: nil)
                     DispatchQueue.main.async {
-                        imageView.image = image
-                    }
-                    
-                    if (reloadCallBack != nil) {
-                        reloadCallBack!(indexPath!)
+                        if imageView != nil {
+                            imageView!.image = image
+                        }
+                        
+                        if (reloadCallBack != nil) {
+                            reloadCallBack!(image!)
+                        }
+
                     }
                 }
             }
