@@ -23,5 +23,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    // MARK: - Bundle Info
+    
+    func appDisplayName() -> String {
+        let infoDictionary = Bundle.main.infoDictionary
+        return infoDictionary!["CFBundleDisplayName"] as! String
+    }
+    
+    func appID() -> String {
+        let infoDictionary = Bundle.main.infoDictionary
+        return infoDictionary!["CFBundleIdentifier"] as! String
+    }
+
 }
 

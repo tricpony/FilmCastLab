@@ -227,7 +227,15 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
                 let actor: Actor = fetchedResultsController().object(at: indexPath)
                 let vc = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 vc.actor = actor
-                vc.navigationItem.title = "Simpsons Cast Member"
+                
+                let appDelegate = UIApplication.shared.delegate as? AppDelegate
+                
+                if appDelegate?.appDisplayName() == "Simpsons Character Viewer" {
+                    vc.navigationItem.title = "Simpsons Cast Member"
+                }else{
+                    vc.navigationItem.title = "The Wire Cast Member"
+                }
+                
                 vc.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 vc.navigationItem.leftItemsSupplementBackButton = true
                 
