@@ -42,10 +42,9 @@ class DetailViewController: BaseViewController {
                 sceneTitle += "\n( Image Unavailable )"
             }else{
                 
-                self.loadIconImage(at: self.actor?.iconURL,
+                self.loadIconImage(at: iconAddress,
                                    imageView: self.actorImageView!,
                                    pinwheel: self.pinWheel!,
-                                   placeholderImageName: "Members_tab",
                                    indexPath: nil,
                                    completion: { (image) in
                                     
