@@ -152,10 +152,7 @@ class CastPosterViewController: BaseViewController, NSFetchedResultsControllerDe
                                  placeholderImageName: "Members_tab_small",
                                  indexPath: indexPath,
                                  completion: { (image) in
-
-                                    if cell.actorImageView.image != nil {
-                                        actor.transientImage = image
-                                    }
+                                    actor.transientImage = image
                                     tableView.beginUpdates()
                                     cell.configGeometry()
                                     tableView.endUpdates()
