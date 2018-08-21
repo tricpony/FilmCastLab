@@ -54,7 +54,7 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         if isFiltering() {
             return filteredFetchedResultsController()
         }
-        
+        unfilteredFetchedResultsController.delegate = self
         return unfilteredFetchedResultsController
     }
     
@@ -250,6 +250,15 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
                 
                 //this clears the title of the back button to leave only the chevron
                 self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+                
+                //disable this delegate while visiting the detail screen because if it is selected as favorite
+                //the delegate method didChange here is called, which we really don't need, but more importantly
+                //for some odd reason once we pop the detail controller and cancel the search then reloadData on
+                //the table does nothing -- this only happens if the user is in search mode
+                if isFiltering() {
+                    self.filteredFetchedResultsController().delegate = nil
+                    self.unfilteredFetchedResultsController.delegate = nil
+                }
             }
         }
     }
