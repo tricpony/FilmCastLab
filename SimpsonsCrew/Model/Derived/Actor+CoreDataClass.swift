@@ -28,7 +28,7 @@ public class Actor: NSManagedObject {
      },
 
      **/
-    @discardableResult class func createActor(actorInfo: Dictionary<String,Any>, inContext: NSManagedObjectContext) -> Actor? {
+    @discardableResult class func createActor(from actorInfo: Dictionary<String,Any>, inContext: NSManagedObjectContext) -> Actor? {
         let ctx = inContext
         var actor: Actor? = nil
         let actorProfileInfo: String = actorInfo["Text"] as! String

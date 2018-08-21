@@ -103,7 +103,7 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
                 guard let content = payload?["RelatedTopics"] as? [Dictionary<String,Any>] else{print("error"); return}
                 
                 for item in content {
-                    Actor.createActor(actorInfo: item, inContext: self.managedObjectContext)
+                    Actor.createActor(from: item, inContext: self.managedObjectContext)
                     self.managedObjectContext.mr_saveToPersistentStoreAndWait()
                 }
                 self.setupSearchController()
