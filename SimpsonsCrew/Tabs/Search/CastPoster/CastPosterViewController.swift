@@ -155,7 +155,6 @@ class CastPosterViewController: BaseViewController, NSFetchedResultsControllerDe
 
                                     if cell.actorImageView.image != nil {
                                         actor.transientImage = image
-//                                        actor.transientImage = cell.actorImageView.image
                                     }
                                     tableView.beginUpdates()
                                     cell.configGeometry()
