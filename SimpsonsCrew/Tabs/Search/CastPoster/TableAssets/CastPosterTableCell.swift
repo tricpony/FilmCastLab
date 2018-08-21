@@ -15,11 +15,6 @@ class CastPosterTableCell: UITableViewCell {
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var pinwheel: UIActivityIndicatorView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
     func configGeometry() {
         if (self.actorImageView.image != nil) {
             self.heightConstraint.constant = (self.actorImageView.image?.size.height)!
