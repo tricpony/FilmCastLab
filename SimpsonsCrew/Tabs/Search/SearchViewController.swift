@@ -68,6 +68,15 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         self.performCastService()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let sizeClass = BaseViewController.sizeClass()
+        if (sizeClass.vertical == .regular) && (sizeClass.horizontal == .compact) {
+            (self.splitViewController as! SplitViewController).isOnFavorites = false
+        }
+    }
+
     func setupSearchController() {
         
         //on initial launch of app we make the service call to fetch the data which returns in a closure

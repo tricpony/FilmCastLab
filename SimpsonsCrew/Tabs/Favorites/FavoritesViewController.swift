@@ -39,12 +39,15 @@ class FavoritesViewController: UITableViewController, NSFetchedResultsController
         self.tableView.tableFooterView = UIView()
         
         self.clearsSelectionOnViewWillAppear = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         let sizeClass = BaseViewController.sizeClass()
         if (sizeClass.vertical == .regular) && (sizeClass.horizontal == .compact) {
             (self.splitViewController as! SplitViewController).isOnFavorites = true
         }
-
     }
     
     // MARK: - NSFetchedResultsControllerDelegate

@@ -6,6 +6,13 @@
 //  Copyright © 2018 Gigabit LLC. All rights reserved.
 //
 
+/////////////////////
+//
+// https://www.raywenderlich.com/322-custom-uiviewcontroller-transitions-getting-started
+// https://www.raywenderlich.com/915-uipresentationcontroller-tutorial-getting-started
+//
+/////////////////////
+
 import UIKit
 
 class FlipPresentAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
